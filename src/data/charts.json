@@ -1017,5 +1017,947 @@
       "summary": "While contraception enabled the decline, economic factors — stagnating wages, housing costs, student debt — made young people unable or unwilling to have children.",
       "interpretation": "The post-2007 decline is harder to explain with reproductive technology alone. Young adults increasingly cite economic reasons for delaying or forgoing children: housing costs, student debt, childcare expenses, job instability. The economic deterioration that began after 1971 created conditions where family formation became financially prohibitive."
     }
+  },
+  {
+    "id": "real-median-household-income",
+    "category": "wages",
+    "title": "Real Median Household Income",
+    "subtitle": "Median household income in 2023 dollars",
+    "commonClaim": "Middle class incomes stagnated after 1971 when the dollar lost its gold backing.",
+    "actualTrend": "Real median household income roughly doubled from 1950 to 2000, but growth slowed significantly after 2000. The stagnation correlates more with globalization, the China shock, and the 2001/2008 recessions than with the 1971 gold standard change. Income reached a new high of $80,610 in 2023.",
+    "dataSource": {
+      "name": "U.S. Census Bureau, FRED (MEHOINUSA672N)",
+      "url": "https://fred.stlouisfed.org/series/MEHOINUSA672N",
+      "lastUpdated": "2024-09"
+    },
+    "valueLabel": "Median Household Income",
+    "unit": "2023 $",
+    "chartData": [
+      { "year": 1953, "value": 32870 },
+      { "year": 1957, "value": 35680 },
+      { "year": 1960, "value": 37840 },
+      { "year": 1965, "value": 42300 },
+      { "year": 1970, "value": 49510 },
+      { "year": 1975, "value": 51200 },
+      { "year": 1980, "value": 52400 },
+      { "year": 1985, "value": 54300 },
+      { "year": 1990, "value": 58200 },
+      { "year": 1995, "value": 58900 },
+      { "year": 2000, "value": 64900 },
+      { "year": 2005, "value": 63100 },
+      { "year": 2010, "value": 60200 },
+      { "year": 2015, "value": 65700 },
+      { "year": 2019, "value": 74580 },
+      { "year": 2020, "value": 72030 },
+      { "year": 2023, "value": 80610 }
+    ],
+    "annotations": [
+      { "year": 1971, "label": "Nixon Shock", "description": "Dollar decoupled from gold; income growth continued through the 1970s" },
+      { "year": 1981, "label": "Reagan era begins", "description": "Tax cuts and deregulation reshape income distribution" },
+      { "year": 2000, "label": "Dot-com peak", "description": "Median income reaches then-record before two recessions erode gains" },
+      { "year": 2008, "label": "Great Recession", "description": "Financial crisis causes steepest income decline since the Depression" },
+      { "year": 2023, "label": "New record", "description": "Median income reaches all-time high of $80,610 in 2023 dollars" }
+    ],
+    "causes": [
+      { "name": "Globalization & trade competition", "weight": 25, "description": "Competition from lower-wage countries displaced middle-income manufacturing jobs, suppressing wage growth for non-college workers.", "source": "Autor, Dorn & Hanson (2013)", "sourceUrl": "https://economics.mit.edu/research/publications/china-syndrome-local-labor-market-effects-import-competition" },
+      { "name": "Technological change & skill premium", "weight": 25, "description": "Technology increased demand for high-skill workers while automating middle-skill jobs, widening the income gap between education levels.", "source": "Acemoglu & Autor (2011)", "sourceUrl": "https://economics.mit.edu/research/publications/skills-tasks-and-technologies-implications-employment-and-earnings" },
+      { "name": "Declining union membership", "weight": 20, "description": "Union membership fell from 35% in the 1950s to 10% by 2023, reducing collective bargaining power and wage growth for median workers.", "source": "Bureau of Labor Statistics", "sourceUrl": "https://www.bls.gov/news.release/union2.nr0.htm" },
+      { "name": "Rising benefits costs absorbing compensation", "weight": 15, "description": "Employer spending on healthcare benefits grew dramatically, absorbing compensation gains that would otherwise have appeared as wages.", "source": "Bureau of Labor Statistics", "sourceUrl": "https://www.bls.gov/news.release/ecec.nr0.htm" },
+      { "name": "Household composition changes", "weight": 15, "description": "Rising single-person households and demographic shifts changed the 'typical household,' making comparisons over time less straightforward.", "source": "U.S. Census Bureau", "sourceUrl": "https://www.census.gov/data/tables/time-series/demo/income-poverty/historical-income-households.html" }
+    ],
+    "skepticView": {
+      "title": "Income growth continued well after 1971",
+      "summary": "Real median income grew substantially through the 1990s and hit new records in 2019 and 2023. The slowdown correlates with specific economic shocks, not the end of the gold standard.",
+      "interpretation": "If the gold standard change caused income stagnation, why did incomes grow robustly for 30 more years? The real slowdown came after 2000, driven by the China shock, two recessions, and structural shifts in the labor market. Also, total compensation including benefits has grown more than wages alone."
+    },
+    "neutralView": {
+      "title": "Growth slowed but didn't stop",
+      "summary": "Real median household income has grown more slowly since the 1970s, driven by globalization, technology, and labor market changes, with monetary policy playing an indirect role.",
+      "interpretation": "The data shows genuine slowdown in median income growth, but the timing doesn't cleanly match 1971. The 1970s saw solid income growth despite high inflation. The real deceleration came in the 2000s. Multiple factors converged to reduce the middle class's share of economic gains."
+    },
+    "believerView": {
+      "title": "Fiat money eroded real purchasing power",
+      "summary": "While nominal incomes rose, persistent inflation meant real gains were far smaller than they appear. Workers had to run faster just to stay in place.",
+      "interpretation": "The pre-1971 era saw rapid real income growth because the gold standard kept prices stable. After 1971, inflation ate into nominal wage gains, and the government's CPI measurements understate true inflation by changing the basket of goods over time."
+    }
+  },
+  {
+    "id": "healthcare-costs-vs-income",
+    "category": "prices",
+    "title": "Healthcare Costs vs Median Income",
+    "subtitle": "Per-capita national health expenditure in nominal dollars",
+    "commonClaim": "Healthcare became unaffordable after 1971 when fiat money caused prices to spiral.",
+    "actualTrend": "Healthcare spending per capita rose from $146 in 1960 to $14,570 in 2023, vastly outpacing income growth. The causes are structural: third-party payment systems, administrative complexity, drug pricing, aging demographics, and technological advances that add cost without market discipline.",
+    "dataSource": {
+      "name": "Centers for Medicare & Medicaid Services (CMS), National Health Expenditure Data",
+      "url": "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/historical",
+      "lastUpdated": "2024-12"
+    },
+    "valueLabel": "Per Capita Health Spending",
+    "unit": "$",
+    "chartData": [
+      { "year": 1960, "value": 146 },
+      { "year": 1965, "value": 205 },
+      { "year": 1970, "value": 353 },
+      { "year": 1975, "value": 592 },
+      { "year": 1980, "value": 1110 },
+      { "year": 1985, "value": 1765 },
+      { "year": 1990, "value": 2854 },
+      { "year": 1995, "value": 3698 },
+      { "year": 2000, "value": 4878 },
+      { "year": 2005, "value": 6850 },
+      { "year": 2010, "value": 8402 },
+      { "year": 2015, "value": 9994 },
+      { "year": 2020, "value": 12530 },
+      { "year": 2022, "value": 13493 },
+      { "year": 2023, "value": 14570 }
+    ],
+    "annotations": [
+      { "year": 1965, "label": "Medicare & Medicaid created", "description": "Government enters healthcare market, dramatically expanding demand and coverage" },
+      { "year": 1973, "label": "HMO Act", "description": "Health Maintenance Organization Act encourages managed care" },
+      { "year": 1983, "label": "DRG system", "description": "Medicare shifts to prospective payment, changing hospital incentives" },
+      { "year": 2003, "label": "Medicare Part D", "description": "Prescription drug benefit adds major new government spending" },
+      { "year": 2010, "label": "Affordable Care Act", "description": "ACA expands coverage to millions but adds system complexity" }
+    ],
+    "causes": [
+      { "name": "Third-party payment & price opacity", "weight": 30, "description": "When insurance or government pays, consumers don't see true costs and providers face weak price competition. 90% of healthcare spending is paid by third parties.", "source": "CMS National Health Expenditure Data", "sourceUrl": "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/nhe-fact-sheet" },
+      { "name": "Administrative complexity", "weight": 25, "description": "The US spends ~34% of healthcare dollars on administration — billing, coding, insurance processing. Canada spends ~17%. This adds ~$1 trillion in unnecessary costs annually.", "source": "JAMA (Himmelstein et al.)", "sourceUrl": "https://jamanetwork.com/journals/jama/fullarticle/2785480" },
+      { "name": "Drug pricing & patent monopolies", "weight": 20, "description": "US drug prices are 2-3x higher than other developed nations. Patent protections and lack of government negotiation (until 2022 IRA) keep prices high.", "source": "RAND Corporation", "sourceUrl": "https://www.rand.org/pubs/research_reports/RRA788-1.html" },
+      { "name": "Technology adoption without cost discipline", "weight": 15, "description": "New medical technologies are adopted for marginal benefits without cost-effectiveness analysis, unlike other countries that use bodies like NICE (UK).", "source": "Health Affairs", "sourceUrl": "https://www.healthaffairs.org/" },
+      { "name": "Aging population", "weight": 10, "description": "The 65+ population has grown from 9% to 17% since 1960. Per-capita healthcare spending for seniors is 3-5x higher than for younger adults.", "source": "Census Bureau", "sourceUrl": "https://www.census.gov/library/stories/2023/05/2020-census-united-states-older-population-grew.html" }
+    ],
+    "skepticView": {
+      "title": "Healthcare costs are a structural market failure, not a monetary phenomenon",
+      "summary": "Every developed country has faced rising healthcare costs. The US spends more because of unique structural factors: fragmented insurance, administrative waste, and lack of price controls.",
+      "interpretation": "Countries on the gold standard historically had the same healthcare cost trajectories. The US spends 17% of GDP on healthcare while getting worse outcomes than countries spending 10-12%. This is a market structure problem, not a money problem."
+    },
+    "neutralView": {
+      "title": "Structural incentives, demographics, and technology drive healthcare inflation",
+      "summary": "Healthcare costs rose due to third-party payment removing price discipline, administrative waste, drug monopolies, and an aging population demanding more care.",
+      "interpretation": "The timing partially aligns with 1971, but Medicare and Medicaid (1965) were already transforming the market before the gold standard ended. The real acceleration came from structural incentives that reward volume over value and opacity over transparency."
+    },
+    "believerView": {
+      "title": "Fiat money enabled unlimited government healthcare spending",
+      "summary": "Without gold standard constraints, government could fund Medicare and Medicaid expansion through money creation, inflating healthcare prices far beyond what a sound-money system would allow.",
+      "interpretation": "Government healthcare spending went from near-zero to $2 trillion annually because fiat money removed the fiscal constraint. This demand-side explosion, funded by money printing, is the primary driver of healthcare price inflation."
+    }
+  },
+  {
+    "id": "college-tuition-vs-inflation",
+    "category": "prices",
+    "title": "College Tuition vs General Inflation",
+    "subtitle": "Average 4-year public university tuition & fees indexed to 1970 (1970=100), compared to CPI",
+    "commonClaim": "College became unaffordable because fiat money allowed unlimited government student lending.",
+    "actualTrend": "Average tuition at 4-year public universities rose from ~$500 in 1970 to over $11,000 by 2023 — a 2,100% increase versus ~700% for general inflation. The divergence accelerated after 1980 as states cut higher education funding and federal student loans expanded without price controls.",
+    "dataSource": {
+      "name": "National Center for Education Statistics (NCES), Digest of Education Statistics Table 330.10",
+      "url": "https://nces.ed.gov/programs/digest/d23/tables/dt23_330.10.asp",
+      "lastUpdated": "2024-01"
+    },
+    "valueLabel": "Tuition Index",
+    "secondaryValueLabel": "CPI Index",
+    "unit": "Index (1970=100)",
+    "chartData": [
+      { "year": 1970, "value": 100, "secondaryValue": 100 },
+      { "year": 1975, "value": 136, "secondaryValue": 138 },
+      { "year": 1980, "value": 179, "secondaryValue": 214 },
+      { "year": 1985, "value": 308, "secondaryValue": 279 },
+      { "year": 1990, "value": 454, "secondaryValue": 331 },
+      { "year": 1995, "value": 622, "secondaryValue": 384 },
+      { "year": 2000, "value": 778, "secondaryValue": 434 },
+      { "year": 2005, "value": 1120, "secondaryValue": 489 },
+      { "year": 2010, "value": 1500, "secondaryValue": 545 },
+      { "year": 2015, "value": 1820, "secondaryValue": 585 },
+      { "year": 2020, "value": 2000, "secondaryValue": 629 },
+      { "year": 2023, "value": 2150, "secondaryValue": 714 }
+    ],
+    "annotations": [
+      { "year": 1972, "label": "Pell Grants created", "description": "Basic Educational Opportunity Grants expand federal student aid" },
+      { "year": 1980, "label": "State funding cuts begin", "description": "Per-student state funding begins long-term decline after recessions" },
+      { "year": 1992, "label": "Unsubsidized loans", "description": "Federal Direct Loan Program makes unsubsidized loans widely available" },
+      { "year": 2005, "label": "Bankruptcy reform", "description": "Student loans become nearly impossible to discharge in bankruptcy" },
+      { "year": 2010, "label": "Direct lending only", "description": "Federal government becomes sole provider of federal student loans" }
+    ],
+    "causes": [
+      { "name": "State funding cuts for higher education", "weight": 30, "description": "Per-student state appropriations fell ~30% in real terms since 2000. Universities shifted costs to students through tuition increases. Public schools now get more from tuition than state funding.", "source": "State Higher Education Executive Officers Association", "sourceUrl": "https://sheeo.org/project/state-higher-education-finance/" },
+      { "name": "Federal loan expansion (Bennett Hypothesis)", "weight": 25, "description": "Expanding federal student loans increased students' ability to pay, enabling schools to raise prices. Annual loan limits rose from $2,500 to $12,500 for undergrads.", "source": "Federal Reserve Bank of New York", "sourceUrl": "https://www.newyorkfed.org/research/staff_reports/sr733" },
+      { "name": "Administrative bloat", "weight": 20, "description": "Non-instructional staff grew 2x faster than faculty from 1975-2015. Spending on amenities, student services, and compliance increased dramatically.", "source": "American Institutes for Research", "sourceUrl": "https://www.air.org/" },
+      { "name": "Reduced price sensitivity", "weight": 15, "description": "College is perceived as essential for middle-class life, making demand inelastic. Students borrow because they view it as an investment, reducing price discipline.", "source": "Georgetown Center on Education and the Workforce", "sourceUrl": "https://cew.georgetown.edu/" },
+      { "name": "Rising costs of research & technology", "weight": 10, "description": "Universities invested heavily in research facilities, technology infrastructure, and compliance with federal mandates, adding costs passed to students.", "source": "National Science Foundation", "sourceUrl": "https://ncses.nsf.gov/pubs/nsf24316" }
+    ],
+    "skepticView": {
+      "title": "Government lending distorted the market, not fiat money per se",
+      "summary": "The Bennett Hypothesis — that expanding federal loans enables tuition hikes — has strong empirical support. This is a policy choice, not an inherent feature of fiat currency.",
+      "interpretation": "Countries with fiat currencies but different higher education policies (Germany, France, Scandinavia) have kept tuition low or free. The US tuition explosion is about how the government structured student lending, not about the monetary system."
+    },
+    "neutralView": {
+      "title": "State disinvestment and federal loan expansion created a cost spiral",
+      "summary": "Tuition inflation resulted from states cutting funding while federal loans enabled schools to shift costs to students without market discipline.",
+      "interpretation": "This is genuinely one of the most alarming charts — tuition has risen 3x faster than general inflation since 1980. But the causes are identifiable policy decisions: state budget cuts, loan expansion without price controls, and university spending on non-academic functions."
+    },
+    "believerView": {
+      "title": "Unlimited fiat credit inflated education into a speculative bubble",
+      "summary": "Without gold standard constraints, the government could extend unlimited student credit, inflating tuition just as easy money inflated housing prices.",
+      "interpretation": "Student loan debt now exceeds $1.7 trillion — a sum only possible in a fiat system. The government created money to lend to students, who bid up tuition prices, creating a debt trap that a gold standard would have prevented by constraining credit creation."
+    }
+  },
+  {
+    "id": "ceo-to-worker-pay-ratio",
+    "category": "inequality",
+    "title": "CEO-to-Worker Pay Ratio",
+    "subtitle": "Ratio of CEO realized compensation to typical worker compensation",
+    "commonClaim": "The gap between CEOs and workers exploded after 1971 as fiat money enabled financialization.",
+    "actualTrend": "The CEO-to-worker ratio stayed below 40:1 until the mid-1980s, then surged to 366:1 in 2000 before settling around 290:1 in 2023. The explosion correlates with stock option compensation, financial deregulation, and changes in corporate governance — not directly with the end of the gold standard.",
+    "dataSource": {
+      "name": "Economic Policy Institute (EPI), CEO Compensation Data",
+      "url": "https://www.epi.org/publication/ceo-pay-in-2023/",
+      "lastUpdated": "2024-10"
+    },
+    "valueLabel": "CEO-to-Worker Ratio",
+    "unit": "Ratio",
+    "chartData": [
+      { "year": 1965, "value": 21 },
+      { "year": 1968, "value": 24 },
+      { "year": 1973, "value": 22 },
+      { "year": 1978, "value": 31 },
+      { "year": 1980, "value": 33 },
+      { "year": 1985, "value": 44 },
+      { "year": 1989, "value": 61 },
+      { "year": 1993, "value": 111 },
+      { "year": 1995, "value": 136 },
+      { "year": 2000, "value": 366 },
+      { "year": 2005, "value": 240 },
+      { "year": 2007, "value": 331 },
+      { "year": 2010, "value": 221 },
+      { "year": 2013, "value": 296 },
+      { "year": 2015, "value": 286 },
+      { "year": 2018, "value": 278 },
+      { "year": 2020, "value": 351 },
+      { "year": 2021, "value": 399 },
+      { "year": 2022, "value": 344 },
+      { "year": 2023, "value": 290 }
+    ],
+    "annotations": [
+      { "year": 1978, "label": "Revenue Act", "description": "Creates 401(k)s and shifts tax incentives, beginning era of stock-based pay" },
+      { "year": 1993, "label": "Section 162(m)", "description": "Tax code caps deductible executive salary at $1M, but exempts stock options — accelerating option-based pay" },
+      { "year": 2000, "label": "Dot-com peak", "description": "Stock option exercises push CEO pay to all-time high relative to workers" },
+      { "year": 2010, "label": "Dodd-Frank", "description": "Requires public companies to disclose CEO-to-median-worker pay ratio" },
+      { "year": 2021, "label": "Post-COVID surge", "description": "Stock market recovery pushes realized CEO compensation to near-record levels" }
+    ],
+    "causes": [
+      { "name": "Stock option & equity compensation", "weight": 35, "description": "Stock options went from 0% to ~80% of CEO pay since the 1980s. When markets rise, CEO pay explodes. Realized CEO compensation soared 1,085% from 1978 to 2023.", "source": "Economic Policy Institute", "sourceUrl": "https://www.epi.org/publication/ceo-pay-in-2023/" },
+      { "name": "Tax policy incentivizing stock-based pay", "weight": 25, "description": "Section 162(m) of the tax code (1993) capped salary deductions at $1M but exempted 'performance-based' stock pay, creating a massive incentive for option-heavy packages.", "source": "Tax Policy Center", "sourceUrl": "https://www.taxpolicycenter.org/" },
+      { "name": "Corporate governance weaknesses", "weight": 20, "description": "CEO pay is set by boards of directors who are often chosen by the CEO. Peer benchmarking creates a ratchet effect: every board wants to pay 'above average.'", "source": "Bebchuk & Fried (2004)", "sourceUrl": "https://www.law.harvard.edu/faculty/bebchuk/pdfs/Performance-Pay-HLR.pdf" },
+      { "name": "Financialization of the economy", "weight": 10, "description": "The financial sector's share of corporate profits grew from 10% to 30%, and finance-sector CEOs receive the highest compensation packages.", "source": "Philippon & Reshef (2012)", "sourceUrl": "https://academic.oup.com/qje/article/127/4/1551/1841372" },
+      { "name": "Declining worker bargaining power", "weight": 10, "description": "Worker wages at the median stagnated while CEO pay soared. Union decline, globalization, and labor market deregulation compressed wages at the bottom.", "source": "Bureau of Labor Statistics", "sourceUrl": "https://www.bls.gov/news.release/union2.nr0.htm" }
+    ],
+    "skepticView": {
+      "title": "Stock-based compensation and tax policy, not money supply",
+      "summary": "The CEO pay explosion didn't begin until the late 1980s — nearly 20 years after the gold standard ended. It tracks directly with stock option adoption and tax code changes.",
+      "interpretation": "The ratio was still only 33:1 in 1980, nearly a decade after the gold standard ended. The real explosion came from the 1993 tax code change that incentivized stock options, the 1990s bull market, and weak corporate governance. Other fiat-currency nations (Japan, Germany) have CEO-to-worker ratios of 50-100:1, not 300:1."
+    },
+    "neutralView": {
+      "title": "Compensation structure, governance, and policy drove the gap",
+      "summary": "The CEO-to-worker pay gap was driven by stock-based compensation, tax incentives, weak governance, and declining worker bargaining power.",
+      "interpretation": "This is a real and concerning trend, but the timing and mechanisms point to specific policy choices rather than monetary system change. The shift to stock options in the 1990s created a feedback loop: rising markets increased CEO pay, which went into stocks, pushing markets higher."
+    },
+    "believerView": {
+      "title": "Asset inflation from fiat money disproportionately enriched executives",
+      "summary": "Fiat money enabled the credit expansion and asset price inflation that made stock-based CEO compensation so lucrative, while workers' wages stagnated in real terms.",
+      "interpretation": "The mechanism is clear: fiat money creation flows into financial assets first (Cantillon effect). CEOs, paid largely in stock, benefited directly from asset inflation. Workers, paid in wages, saw their purchasing power eroded. The gold standard would have constrained the asset inflation that enriched executives."
+    }
+  },
+  {
+    "id": "homeownership-rate",
+    "category": "housing",
+    "title": "Homeownership Rate",
+    "subtitle": "Percentage of occupied housing units that are owner-occupied",
+    "commonClaim": "The American Dream of homeownership died after 1971 when fiat money inflated housing prices.",
+    "actualTrend": "The homeownership rate rose from 44% in 1940 to 64% by 1970, then continued rising to a peak of 69.2% in 2004 before falling to 63.4% in 2016. It recovered to ~66% by 2023. The post-2004 decline was caused by the subprime bubble and subsequent tightened lending standards.",
+    "dataSource": {
+      "name": "U.S. Census Bureau, Housing Vacancies and Homeownership (CPS/HVS)",
+      "url": "https://fred.stlouisfed.org/series/RHORUSQ156N",
+      "lastUpdated": "2024-10"
+    },
+    "valueLabel": "Homeownership Rate",
+    "unit": "%",
+    "chartData": [
+      { "year": 1940, "value": 43.6 },
+      { "year": 1950, "value": 55.0 },
+      { "year": 1960, "value": 61.9 },
+      { "year": 1965, "value": 63.0 },
+      { "year": 1970, "value": 64.2 },
+      { "year": 1975, "value": 64.6 },
+      { "year": 1980, "value": 65.6 },
+      { "year": 1985, "value": 63.9 },
+      { "year": 1990, "value": 64.2 },
+      { "year": 1995, "value": 64.7 },
+      { "year": 2000, "value": 67.4 },
+      { "year": 2004, "value": 69.2 },
+      { "year": 2008, "value": 67.8 },
+      { "year": 2010, "value": 66.9 },
+      { "year": 2012, "value": 65.4 },
+      { "year": 2016, "value": 63.4 },
+      { "year": 2020, "value": 65.8 },
+      { "year": 2023, "value": 65.9 }
+    ],
+    "annotations": [
+      { "year": 1944, "label": "GI Bill", "description": "Servicemen's Readjustment Act provides VA loans, driving homeownership surge" },
+      { "year": 1968, "label": "Fair Housing Act", "description": "Prohibits housing discrimination, expanding access for minorities" },
+      { "year": 1995, "label": "Homeownership push", "description": "National Homeownership Strategy expands lending to underserved communities" },
+      { "year": 2004, "label": "All-time peak", "description": "Subprime lending pushes homeownership to record 69.2%" },
+      { "year": 2008, "label": "Housing crash", "description": "Millions of foreclosures push homeownership rate into sustained decline" }
+    ],
+    "causes": [
+      { "name": "Housing affordability crisis", "weight": 30, "description": "Home prices grew 4x faster than incomes since 1960. In 2023, median home price was nearly 6x median household income, up from 2x in the 1960s.", "source": "Joint Center for Housing Studies, Harvard", "sourceUrl": "https://www.jchs.harvard.edu/blog/home-price-income-ratio-reaches-record-high-0" },
+      { "name": "Zoning & supply constraints", "weight": 25, "description": "Restrictive zoning in high-demand metros limits new construction, constraining supply and driving up prices in the most economically dynamic areas.", "source": "Glaeser & Gyourko (2018)", "sourceUrl": "https://www.nber.org/papers/w8835" },
+      { "name": "Student debt burden", "weight": 20, "description": "Outstanding student debt grew from $260B in 2004 to $1.7T in 2023, delaying homebuying for younger generations. Each $1K in student debt reduces homeownership probability.", "source": "Federal Reserve Bank of New York", "sourceUrl": "https://www.newyorkfed.org/microeconomics/hhdc" },
+      { "name": "Lending standards & credit access", "weight": 15, "description": "Post-2008 tighter lending standards made mortgages harder to obtain, especially for lower-income and minority households.", "source": "Urban Institute", "sourceUrl": "https://www.urban.org/research/publication/housing-finance-glance-monthly-chartbook" },
+      { "name": "Demographic shifts", "weight": 10, "description": "Delayed marriage, urbanization, and more mobile lifestyles reduced homeownership demand among younger cohorts.", "source": "U.S. Census Bureau", "sourceUrl": "https://www.census.gov/housing/hvs/data/histtabs.html" }
+    ],
+    "skepticView": {
+      "title": "Homeownership rose after 1971 and peaked in 2004",
+      "summary": "The homeownership rate continued rising after 1971, reaching an all-time high 33 years later. The decline is tied to the subprime crisis and lending tightening, not monetary policy.",
+      "interpretation": "If fiat money destroyed homeownership, why did the rate rise for three more decades? The current 66% rate is higher than at any point before 1970. The real challenge is affordability in specific metros, driven by zoning restrictions that have nothing to do with monetary systems."
+    },
+    "neutralView": {
+      "title": "Affordability, debt, and supply constraints shape homeownership",
+      "summary": "Homeownership peaked and declined due to housing bubble aftermath, rising prices, student debt, and supply constraints — with low interest rates playing a dual role of enabling both access and price inflation.",
+      "interpretation": "The homeownership story is nuanced. Low rates after 1971 initially made mortgages more accessible, pushing homeownership up. But they also inflated home prices, eventually making the down payment barrier insurmountable for many. The net effect has been a slight decline from the unsustainable 2004 peak."
+    },
+    "believerView": {
+      "title": "Fiat money turned housing from shelter into a speculative asset",
+      "summary": "Easy money and credit expansion inflated home prices far beyond what wages could support, making homeownership dependent on ever-looser credit rather than genuine affordability.",
+      "interpretation": "The 2004 peak was a mirage — it was achieved through subprime lending that proved unsustainable. True affordable homeownership (where homes cost 2x income) died in the 1970s. What replaced it was a debt-dependent system where homeownership requires 30-year mortgages and dual incomes."
+    }
+  },
+  {
+    "id": "real-minimum-wage",
+    "category": "wages",
+    "title": "Real Federal Minimum Wage",
+    "subtitle": "Federal minimum wage adjusted for inflation (2023 dollars)",
+    "commonClaim": "The minimum wage lost its value after 1971 when inflation eroded purchasing power.",
+    "actualTrend": "The real minimum wage peaked in 1968 at $13.28 (in 2023 dollars) and has declined 46% since then. The cause is not inflation alone — it is Congress's repeated failure to raise the nominal minimum wage. From 2009 to 2024, the $7.25 minimum was not adjusted at all, the longest freeze in its history.",
+    "dataSource": {
+      "name": "U.S. Department of Labor, Wage and Hour Division",
+      "url": "https://www.dol.gov/agencies/whd/minimum-wage/history/chart",
+      "lastUpdated": "2024-01"
+    },
+    "valueLabel": "Real Minimum Wage",
+    "unit": "2023 $",
+    "chartData": [
+      { "year": 1938, "value": 4.81 },
+      { "year": 1950, "value": 8.79 },
+      { "year": 1956, "value": 10.26 },
+      { "year": 1961, "value": 10.44 },
+      { "year": 1963, "value": 11.58 },
+      { "year": 1967, "value": 11.81 },
+      { "year": 1968, "value": 13.28 },
+      { "year": 1970, "value": 12.33 },
+      { "year": 1974, "value": 12.17 },
+      { "year": 1976, "value": 11.38 },
+      { "year": 1978, "value": 11.12 },
+      { "year": 1980, "value": 10.63 },
+      { "year": 1981, "value": 10.11 },
+      { "year": 1990, "value": 7.79 },
+      { "year": 1991, "value": 8.08 },
+      { "year": 1996, "value": 7.50 },
+      { "year": 1997, "value": 8.05 },
+      { "year": 2000, "value": 7.46 },
+      { "year": 2007, "value": 7.04 },
+      { "year": 2008, "value": 7.72 },
+      { "year": 2009, "value": 9.14 },
+      { "year": 2015, "value": 8.15 },
+      { "year": 2020, "value": 8.41 },
+      { "year": 2023, "value": 7.25 }
+    ],
+    "annotations": [
+      { "year": 1938, "label": "Minimum wage created", "description": "Fair Labor Standards Act establishes $0.25/hr minimum wage" },
+      { "year": 1968, "label": "Peak purchasing power", "description": "At $1.60/hr, the minimum wage reaches its highest real value ever: $13.28 in 2023 dollars" },
+      { "year": 1981, "label": "Reagan era begins", "description": "No minimum wage increase for 9 years (1981-1990), longest gap at that time" },
+      { "year": 2009, "label": "Last increase", "description": "Minimum wage raised to $7.25/hr, where it has remained for 15+ years" },
+      { "year": 2023, "label": "Record-long freeze", "description": "Longest period without a federal minimum wage increase in history" }
+    ],
+    "causes": [
+      { "name": "Congressional inaction", "weight": 40, "description": "The minimum wage is not indexed to inflation. Congress must vote to raise it, and political opposition has prevented increases since 2009 — the longest freeze in history.", "source": "Congressional Research Service", "sourceUrl": "https://www.congress.gov/crs-product/R44667" },
+      { "name": "Inflation erosion", "weight": 25, "description": "Without automatic adjustment, inflation steadily reduces the real value between legislative increases. Cumulative inflation since 2009 has reduced purchasing power by ~30%.", "source": "Bureau of Labor Statistics CPI", "sourceUrl": "https://www.bls.gov/data/inflation_calculator.htm" },
+      { "name": "Political opposition & lobbying", "weight": 15, "description": "Business lobbies (National Restaurant Association, Chamber of Commerce) have consistently opposed increases, arguing they destroy jobs — a claim with limited empirical support.", "source": "Card & Krueger (1994)", "sourceUrl": "https://davidcard.berkeley.edu/papers/njmin-aer.pdf" },
+      { "name": "State-level minimum wages filling the gap", "weight": 10, "description": "30 states and DC have set minimums above $7.25, reducing pressure for federal action. ~60% of minimum wage workers earn above the federal minimum.", "source": "Economic Policy Institute", "sourceUrl": "https://www.epi.org/minimum-wage-tracker/" },
+      { "name": "Shift to tipped & gig economy", "weight": 10, "description": "The tipped minimum ($2.13/hr since 1991) and gig worker classification have created categories of workers effectively below the minimum.", "source": "Department of Labor", "sourceUrl": "https://www.dol.gov/agencies/whd/state/minimum-wage/tipped" }
+    ],
+    "skepticView": {
+      "title": "This is a legislative failure, not a monetary system failure",
+      "summary": "The minimum wage decline is caused by Congress not raising it, not by inflation per se. If the minimum wage were indexed to inflation (as many countries do), the problem wouldn't exist.",
+      "interpretation": "Australia, France, and the UK all have fiat currencies and minimum wages that auto-adjust for inflation, maintaining their real value. The US decline is a choice — a policy failure, not a structural feature of fiat money."
+    },
+    "neutralView": {
+      "title": "Congressional inaction, amplified by inflation, eroded the minimum wage",
+      "summary": "The real minimum wage has fallen because it is not indexed to inflation and Congress has failed to raise it regularly. Both the lack of indexing and the inflation that erodes value are contributing factors.",
+      "interpretation": "If the US had stayed on the gold standard, inflation would have been lower, partially preserving the minimum wage's value. But gold standard or not, the fundamental problem is that the minimum wage requires an act of Congress to change, making it vulnerable to political gridlock."
+    },
+    "believerView": {
+      "title": "Inflation from fiat money destroyed the minimum wage",
+      "summary": "Under the gold standard, the minimum wage held its value naturally. Fiat money's persistent inflation is the engine that eroded purchasing power, making the minimum wage worth 46% less than its 1968 peak.",
+      "interpretation": "The gold standard era saw the minimum wage's purchasing power steadily rise because prices were relatively stable. After 1971, every year without a legislative increase meant a real pay cut. The system was designed for price stability — fiat money broke that assumption and broke the minimum wage with it."
+    }
+  },
+  {
+    "id": "sp500-vs-median-wages",
+    "category": "inequality",
+    "title": "S&P 500 vs Median Wages",
+    "subtitle": "Both indexed to 100 in 1970, showing divergence between financial assets and worker pay",
+    "commonClaim": "Stock markets decoupled from the real economy after 1971, benefiting the wealthy while workers fell behind.",
+    "actualTrend": "Since 1970, the S&P 500 has risen ~6,400% while median wages have risen ~250% in nominal terms. The divergence accelerated in the 1990s with the tech boom and again after 2009 with quantitative easing. Financial asset growth has vastly outpaced wage growth.",
+    "dataSource": {
+      "name": "S&P Dow Jones Indices, Bureau of Labor Statistics",
+      "url": "https://fred.stlouisfed.org/series/SP500",
+      "lastUpdated": "2024-12"
+    },
+    "valueLabel": "S&P 500 Index",
+    "secondaryValueLabel": "Median Wages Index",
+    "unit": "Index (1970=100)",
+    "chartData": [
+      { "year": 1970, "value": 100, "secondaryValue": 100 },
+      { "year": 1975, "value": 110, "secondaryValue": 120 },
+      { "year": 1980, "value": 150, "secondaryValue": 160 },
+      { "year": 1985, "value": 250, "secondaryValue": 195 },
+      { "year": 1990, "value": 420, "secondaryValue": 235 },
+      { "year": 1995, "value": 620, "secondaryValue": 265 },
+      { "year": 2000, "value": 1750, "secondaryValue": 310 },
+      { "year": 2005, "value": 1480, "secondaryValue": 340 },
+      { "year": 2010, "value": 1490, "secondaryValue": 365 },
+      { "year": 2015, "value": 2520, "secondaryValue": 390 },
+      { "year": 2020, "value": 4550, "secondaryValue": 430 },
+      { "year": 2023, "value": 5750, "secondaryValue": 470 }
+    ],
+    "annotations": [
+      { "year": 1971, "label": "Nixon Shock", "description": "Dollar decoupled from gold; financial markets begin long-term divergence from wages" },
+      { "year": 1987, "label": "Greenspan Put begins", "description": "Fed begins pattern of cutting rates to support markets after crashes" },
+      { "year": 2000, "label": "Dot-com bubble", "description": "Tech mania pushes S&P to 1,469; median wages barely move" },
+      { "year": 2009, "label": "Quantitative easing", "description": "Fed buys trillions in bonds, pushing investors into stocks" },
+      { "year": 2020, "label": "COVID response", "description": "Unprecedented fiscal and monetary stimulus sends markets to new highs" }
+    ],
+    "causes": [
+      { "name": "Monetary policy & quantitative easing", "weight": 30, "description": "Fed rate cuts and QE directly inflated financial assets. The Fed's balance sheet grew from $900B to $9T from 2008-2022, much of it flowing into equity markets.", "source": "Federal Reserve", "sourceUrl": "https://fred.stlouisfed.org/series/WALCL" },
+      { "name": "Globalization suppressing wages", "weight": 25, "description": "Global labor competition suppressed wage growth while enabling corporate profit growth through cheaper production costs, benefiting shareholders.", "source": "Economic Policy Institute", "sourceUrl": "https://www.epi.org/publication/charting-wage-stagnation/" },
+      { "name": "Share buybacks & financial engineering", "weight": 20, "description": "Companies spent $7T+ on buybacks since 2010, boosting stock prices without corresponding investment in workers or productivity.", "source": "SEC", "sourceUrl": "https://www.sec.gov/" },
+      { "name": "Concentrated stock ownership", "weight": 15, "description": "The top 10% own 87% of all stocks. Rising markets disproportionately benefit the wealthy, widening the gap between asset owners and wage earners.", "source": "Federal Reserve Distributional Financial Accounts", "sourceUrl": "https://www.federalreserve.gov/releases/z1/dataviz/dfa/distribute/chart/" },
+      { "name": "Declining labor share of income", "weight": 10, "description": "Labor's share of national income fell from ~65% to ~58%, with the difference flowing to corporate profits and thus to shareholders.", "source": "Bureau of Labor Statistics", "sourceUrl": "https://fred.stlouisfed.org/series/PRS85006173" }
+    ],
+    "skepticView": {
+      "title": "Comparing indices is misleading — different things are being measured",
+      "summary": "The S&P 500 includes retained earnings and profits from global operations; median wages are domestic only. Half of American households own stocks through 401(k)s, benefiting from market gains.",
+      "interpretation": "This comparison exaggerates the divergence. Stock prices reflect global corporate earnings, not just domestic wages. Also, 58% of Americans own stocks, so market gains are more broadly shared than suggested. Total compensation including benefits has grown more than wages alone."
+    },
+    "neutralView": {
+      "title": "Financial asset growth has genuinely outpaced wage growth",
+      "summary": "The divergence is real and reflects monetary policy, globalization, and the shift from labor to capital income. But the chart overstates the divide because stocks benefit from global earnings.",
+      "interpretation": "There is a genuine and growing divide between financial asset returns and wage growth. Monetary policy since 2008 especially has inflated financial assets while doing little for wages. The result is a wealth divide between asset owners and wage earners that both monetary and fiscal policy could address."
+    },
+    "believerView": {
+      "title": "Fiat money created two economies — one for asset owners, one for workers",
+      "summary": "The Cantillon effect in action: new money enters through financial markets first, inflating asset prices long before it reaches workers' wages.",
+      "interpretation": "Under the gold standard, stock prices and wages tracked much more closely because money supply growth was constrained. After 1971, the Fed could create unlimited money, which systematically flowed into financial assets first. This is the purest expression of how fiat money creates inequality."
+    }
+  },
+  {
+    "id": "national-savings-rate",
+    "category": "labor",
+    "title": "National Savings Rate",
+    "subtitle": "Personal saving as percentage of disposable personal income",
+    "commonClaim": "Americans stopped saving after 1971 because inflation made saving irrational.",
+    "actualTrend": "The personal savings rate peaked at ~13.5% in 1971-1975, then declined to a low of 2.2% in 2005. It spiked to 33% during COVID lockdowns before settling back to ~4.5% in 2023. The decline correlates with credit expansion, the wealth effect from rising home values and stocks, and the shift from pensions to 401(k)s.",
+    "dataSource": {
+      "name": "Bureau of Economic Analysis (BEA), FRED (PSAVERT)",
+      "url": "https://fred.stlouisfed.org/series/PSAVERT",
+      "lastUpdated": "2024-12"
+    },
+    "valueLabel": "Personal Savings Rate",
+    "unit": "%",
+    "chartData": [
+      { "year": 1960, "value": 8.3 },
+      { "year": 1965, "value": 9.3 },
+      { "year": 1970, "value": 11.4 },
+      { "year": 1971, "value": 12.0 },
+      { "year": 1973, "value": 12.6 },
+      { "year": 1975, "value": 12.0 },
+      { "year": 1978, "value": 10.4 },
+      { "year": 1980, "value": 11.2 },
+      { "year": 1985, "value": 8.2 },
+      { "year": 1990, "value": 7.0 },
+      { "year": 1995, "value": 5.2 },
+      { "year": 2000, "value": 3.5 },
+      { "year": 2005, "value": 2.6 },
+      { "year": 2008, "value": 5.8 },
+      { "year": 2010, "value": 5.7 },
+      { "year": 2015, "value": 5.9 },
+      { "year": 2020, "value": 16.8 },
+      { "year": 2022, "value": 3.4 },
+      { "year": 2023, "value": 4.5 }
+    ],
+    "annotations": [
+      { "year": 1973, "label": "Savings peak", "description": "Personal savings rate reaches ~13% peak" },
+      { "year": 1978, "label": "401(k) created", "description": "Revenue Act creates 401(k), shifting from pensions to individual savings" },
+      { "year": 1985, "label": "Credit card deregulation", "description": "Marquette v. First of Omaha enables nationwide credit card lending" },
+      { "year": 2005, "label": "Pre-crisis low", "description": "Savings rate hits 2.6% as housing wealth effect reduces perceived need to save" },
+      { "year": 2020, "label": "COVID spike", "description": "Stimulus checks and lockdowns push savings to 33% in April 2020" }
+    ],
+    "causes": [
+      { "name": "Credit expansion & consumer finance", "weight": 30, "description": "Credit cards, auto loans, and BNPL services made consumption possible without saving first. Total consumer credit card debt exceeds $1.1 trillion.", "source": "Federal Reserve Bank of New York", "sourceUrl": "https://www.newyorkfed.org/microeconomics/hhdc" },
+      { "name": "Wealth effect from housing & stocks", "weight": 25, "description": "Rising home values and stock portfolios made Americans feel wealthier, reducing the perceived need to save from current income.", "source": "Federal Reserve", "sourceUrl": "https://fred.stlouisfed.org/series/TNWBSHNO" },
+      { "name": "Shift from pensions to 401(k)s", "weight": 20, "description": "Defined-benefit pensions were replaced by 401(k)s. Many workers don't contribute enough, and 401(k) balances aren't captured in the personal savings rate metric.", "source": "Department of Labor", "sourceUrl": "https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/publications/private-pension-plan-bulletin" },
+      { "name": "Stagnating real wages", "weight": 15, "description": "With real wages flat for many workers, there's less room to save after covering rising costs of housing, healthcare, and education.", "source": "Economic Policy Institute", "sourceUrl": "https://www.epi.org/publication/charting-wage-stagnation/" },
+      { "name": "Consumer culture & marketing", "weight": 10, "description": "Advertising expenditure growth and cultural shifts moved norms from thrift toward consumption, especially with the rise of social media and aspirational spending.", "source": "Bureau of Economic Analysis", "sourceUrl": "https://www.bea.gov/data/consumer-spending/main" }
+    ],
+    "skepticView": {
+      "title": "Credit access changed behavior, not fiat money",
+      "summary": "The savings rate peaked AFTER the gold standard ended. The decline correlates with credit card deregulation, mortgage innovation, and consumer finance expansion.",
+      "interpretation": "The savings rate was at its highest in 1971-73, completely contradicting the claim that ending the gold standard immediately harmed savers. The decline came from financial innovation and cultural change. Also, the metric doesn't count 401(k) contributions, capital gains, or home equity, understating actual wealth accumulation."
+    },
+    "neutralView": {
+      "title": "Multiple forces reduced saving",
+      "summary": "The savings decline reflects credit access, perceived wealth from assets, the pension-to-401(k) shift, and stagnating wages. Monetary policy played a supporting role through low rates.",
+      "interpretation": "Low interest rates from fiat-money policy did make saving less rewarding and borrowing cheaper. But the decline was gradual and driven by many non-monetary factors. The COVID savings spike proved Americans can save when conditions warrant it."
+    },
+    "believerView": {
+      "title": "Inflation from fiat money made saving irrational",
+      "summary": "Under fiat money, persistent inflation erodes savings' value. Rational actors responded by spending and borrowing rather than saving in a depreciating currency.",
+      "interpretation": "When money loses purchasing power every year, saving becomes a losing strategy. The gold standard rewarded savers with stable purchasing power. Fiat money punishes savers and rewards borrowers, fundamentally reshaping economic behavior toward debt-driven consumption."
+    }
+  },
+  {
+    "id": "union-membership-vs-middle-class",
+    "category": "labor",
+    "title": "Union Membership vs Middle Class Income Share",
+    "subtitle": "Union membership rate and middle class share of aggregate income, both declining together",
+    "commonClaim": "Union decline and middle class erosion both trace back to the economic disruption of leaving the gold standard.",
+    "actualTrend": "Union membership peaked at ~35% in the mid-1950s and fell to 10% by 2023. Middle class income share fell from 62% in 1970 to 42% in 2020. The correlation is strong and well-documented. The causes are policy choices: Taft-Hartley Act, right-to-work laws, NLRB weakening, and employer anti-union tactics.",
+    "dataSource": {
+      "name": "Bureau of Labor Statistics, Pew Research Center, EPI",
+      "url": "https://www.bls.gov/news.release/union2.nr0.htm",
+      "lastUpdated": "2024-01"
+    },
+    "valueLabel": "Union Membership Rate",
+    "secondaryValueLabel": "Middle Class Income Share",
+    "unit": "%",
+    "chartData": [
+      { "year": 1950, "value": 33.4, "secondaryValue": 61.0 },
+      { "year": 1955, "value": 35.0, "secondaryValue": 62.0 },
+      { "year": 1960, "value": 31.4, "secondaryValue": 62.0 },
+      { "year": 1965, "value": 28.9, "secondaryValue": 62.0 },
+      { "year": 1970, "value": 27.8, "secondaryValue": 62.0 },
+      { "year": 1975, "value": 24.6, "secondaryValue": 60.0 },
+      { "year": 1980, "value": 23.3, "secondaryValue": 57.0 },
+      { "year": 1985, "value": 18.2, "secondaryValue": 54.0 },
+      { "year": 1990, "value": 16.1, "secondaryValue": 52.0 },
+      { "year": 1995, "value": 14.9, "secondaryValue": 50.0 },
+      { "year": 2000, "value": 13.4, "secondaryValue": 48.0 },
+      { "year": 2005, "value": 12.5, "secondaryValue": 46.0 },
+      { "year": 2010, "value": 11.9, "secondaryValue": 45.0 },
+      { "year": 2015, "value": 11.1, "secondaryValue": 43.0 },
+      { "year": 2020, "value": 10.8, "secondaryValue": 42.0 },
+      { "year": 2023, "value": 10.0, "secondaryValue": 42.0 }
+    ],
+    "annotations": [
+      { "year": 1947, "label": "Taft-Hartley Act", "description": "Restricts union power, allows states to pass right-to-work laws" },
+      { "year": 1955, "label": "Peak union density", "description": "Union membership reaches ~35% of the workforce" },
+      { "year": 1981, "label": "PATCO strike", "description": "Reagan fires 11,345 striking air traffic controllers, signaling open season on unions" },
+      { "year": 2011, "label": "Wisconsin Act 10", "description": "Governor Walker strips public sector collective bargaining rights" },
+      { "year": 2018, "label": "Janus v. AFSCME", "description": "Supreme Court rules public-sector unions cannot collect fees from non-members" }
+    ],
+    "causes": [
+      { "name": "Anti-union policy & legislation", "weight": 30, "description": "Taft-Hartley (1947), right-to-work laws in 28 states, and weakening of NLRB enforcement made union organizing increasingly difficult.", "source": "Economic Policy Institute", "sourceUrl": "https://www.epi.org/unequalpower/publications/private-sector-unions-corporate-legal-erosion/" },
+      { "name": "Globalization & manufacturing decline", "weight": 25, "description": "The sectors with highest unionization (manufacturing, mining) shrank as jobs moved overseas, while growing service sectors were hard to organize.", "source": "Bureau of Labor Statistics", "sourceUrl": "https://www.bls.gov/spotlight/2016/union-membership-in-the-united-states/home.htm" },
+      { "name": "Employer anti-union campaigns", "weight": 20, "description": "Companies spend ~$340M/year on union avoidance consultants. Illegal firing of union organizers increased 5x from 1960-2000, with weak penalties.", "source": "Economic Policy Institute", "sourceUrl": "https://www.epi.org/publication/unlawful-employer-opposition-to-union-election-campaigns/" },
+      { "name": "Structural shift to service economy", "weight": 15, "description": "Service sector jobs — retail, food service, healthcare — have historically lower unionization rates due to small workplaces, high turnover, and part-time work.", "source": "Bureau of Labor Statistics", "sourceUrl": "https://www.bls.gov/news.release/union2.nr0.htm" },
+      { "name": "Cultural & political shifts", "weight": 10, "description": "Public approval of unions fell from 75% in 1957 to 48% in 2009 (recovering to 71% by 2022), reducing political support for pro-union policies.", "source": "Gallup", "sourceUrl": "https://news.gallup.com/poll/12751/labor-unions.aspx" }
+    ],
+    "skepticView": {
+      "title": "Union decline is a policy story with clear legislative roots",
+      "summary": "Anti-union legislation, employer opposition, and globalization — not monetary policy — drove union decline. Countries with fiat currencies (Scandinavia) maintain 70%+ union rates.",
+      "interpretation": "Nordic countries have fiat currencies and union rates above 65%. The US decline tracks with specific anti-union policies: Taft-Hartley, PATCO, right-to-work expansions. The correlation between union decline and middle-class erosion is one of the strongest in labor economics."
+    },
+    "neutralView": {
+      "title": "Union decline and middle class erosion share common causes",
+      "summary": "Both trends were driven by globalization, deindustrialization, policy choices, and technological change. The correlation between them is well-established and likely partly causal.",
+      "interpretation": "Research by Western and Rosenfeld (2011) estimates that union decline accounts for one-third of the increase in male wage inequality. The correlation is not coincidental — unions compress wages and increase middle-class bargaining power. Their decline removed a key institutional support for middle-class incomes."
+    },
+    "believerView": {
+      "title": "Economic instability from fiat money undermined labor power",
+      "summary": "The inflationary, boom-bust cycle created by fiat money weakened unions by creating recessions that enabled union-busting and by eroding the stable manufacturing economy where unions thrived.",
+      "interpretation": "The gold standard era was the golden age of unions because it provided economic stability. Fiat money's boom-bust cycles gave employers leverage during downturns to break unions. The 1970s stagflation and early 1980s recession were particularly devastating for organized labor."
+    }
+  },
+  {
+    "id": "manufacturing-employment-share",
+    "category": "labor",
+    "title": "Manufacturing Employment Share",
+    "subtitle": "Manufacturing workers as percentage of total nonfarm employment",
+    "commonClaim": "America lost its manufacturing base after 1971 when the dollar's devaluation made imports cheaper.",
+    "actualTrend": "Manufacturing employment as a share of total jobs fell from ~30% in 1953 to ~8% in 2023. The decline was steady from the 1950s onward, well before 1971. It accelerated after 2001 (China's WTO entry), losing 5 million jobs in a decade. Automation eliminated more manufacturing jobs than trade did.",
+    "dataSource": {
+      "name": "Bureau of Labor Statistics, FRED (MANEMP)",
+      "url": "https://fred.stlouisfed.org/series/MANEMP",
+      "lastUpdated": "2024-12"
+    },
+    "valueLabel": "Manufacturing Share",
+    "unit": "%",
+    "chartData": [
+      { "year": 1950, "value": 30.9 },
+      { "year": 1953, "value": 31.8 },
+      { "year": 1957, "value": 29.0 },
+      { "year": 1960, "value": 27.1 },
+      { "year": 1965, "value": 27.0 },
+      { "year": 1970, "value": 24.4 },
+      { "year": 1975, "value": 21.1 },
+      { "year": 1980, "value": 20.5 },
+      { "year": 1985, "value": 18.0 },
+      { "year": 1990, "value": 16.2 },
+      { "year": 1995, "value": 14.8 },
+      { "year": 2000, "value": 13.1 },
+      { "year": 2005, "value": 10.4 },
+      { "year": 2010, "value": 8.9 },
+      { "year": 2015, "value": 8.7 },
+      { "year": 2020, "value": 8.2 },
+      { "year": 2023, "value": 8.3 }
+    ],
+    "annotations": [
+      { "year": 1953, "label": "Post-war peak", "description": "Manufacturing employment peaks at 31.8% of nonfarm jobs" },
+      { "year": 1971, "label": "Nixon Shock", "description": "Gold standard ends, but manufacturing decline was already well underway" },
+      { "year": 1994, "label": "NAFTA", "description": "North American Free Trade Agreement shifts some production to Mexico" },
+      { "year": 2001, "label": "China joins WTO", "description": "The 'China Shock' accelerates manufacturing job losses dramatically" },
+      { "year": 2010, "label": "Bottom & stabilization", "description": "Manufacturing share stabilizes around 8-9% after the Great Recession" }
+    ],
+    "causes": [
+      { "name": "Automation & productivity gains", "weight": 30, "description": "US manufacturing output reached record highs even as employment fell. Robots and automation replaced workers: each industrial robot displaces ~3.3 workers.", "source": "Acemoglu & Restrepo (2019)", "sourceUrl": "https://economics.mit.edu/research/publications/automation-and-new-tasks-how-technology-displaces-and-reinstates-labor" },
+      { "name": "Globalization & trade competition", "weight": 25, "description": "China's WTO accession alone cost 2-2.4 million US jobs from 2000-2015. NAFTA shifted ~800,000 jobs to Mexico. Lower-wage countries had an inherent cost advantage.", "source": "Autor, Dorn & Hanson (2013)", "sourceUrl": "https://economics.mit.edu/research/publications/china-syndrome-local-labor-market-effects-import-competition" },
+      { "name": "Service economy transition", "weight": 20, "description": "The US economy naturally transitioned from manufacturing to services as incomes rose — a pattern seen in every developed nation regardless of monetary system.", "source": "Bureau of Economic Analysis", "sourceUrl": "https://www.bea.gov/data/gdp/gdp-industry" },
+      { "name": "Currency & trade policy", "weight": 15, "description": "A strong dollar made imports cheap and exports expensive. China's currency manipulation kept the yuan undervalued by an estimated 25-40% for two decades.", "source": "Peterson Institute for International Economics", "sourceUrl": "https://www.piie.com/" },
+      { "name": "Corporate tax & regulatory burden", "weight": 10, "description": "High corporate tax rates (before 2017 TCJA), environmental regulations, and compliance costs incentivized offshoring production.", "source": "Tax Foundation", "sourceUrl": "https://taxfoundation.org/" }
+    ],
+    "skepticView": {
+      "title": "Manufacturing was declining before 1971 — the trend started in the 1950s",
+      "summary": "Manufacturing's share of employment peaked in 1953 and declined steadily for 18 years before the gold standard ended. The decline is a natural feature of economic development.",
+      "interpretation": "Every developed nation has experienced this transition — Germany, Japan, the UK all saw manufacturing decline as a share of employment, regardless of monetary system. The US actually still has the second-largest manufacturing output in the world. The issue is automation, not monetary policy."
+    },
+    "neutralView": {
+      "title": "Automation, trade, and economic evolution drove manufacturing decline",
+      "summary": "Manufacturing employment decline reflects automation, globalization (especially the China shock), and the natural transition of wealthy economies toward services.",
+      "interpretation": "The decline was gradual from 1953-2000, then accelerated sharply with China's WTO entry. Monetary policy played a role through exchange rates, but the fundamental forces were technological change and comparative advantage. Notably, US manufacturing output has increased even as employment fell."
+    },
+    "believerView": {
+      "title": "The devalued dollar made offshoring inevitable",
+      "summary": "Ending gold convertibility devalued the dollar, making foreign labor artificially cheap and American manufacturing uncompetitive, accelerating the offshoring of American jobs.",
+      "interpretation": "Under the gold standard, trade was balanced and manufacturing was the backbone of the economy. The floating exchange rate and trade deficits that followed 1971 enabled the hollowing out of American industry. The human cost — devastated factory towns, opioid epidemics, 'deaths of despair' — flows directly from this decision."
+    }
+  },
+  {
+    "id": "bank-consolidation",
+    "category": "politics",
+    "title": "Bank Consolidation",
+    "subtitle": "Number of FDIC-insured banking institutions in the United States",
+    "commonClaim": "Big banks devoured small banks after deregulation enabled by fiat money's easy credit.",
+    "actualTrend": "The number of FDIC-insured banks fell from ~14,500 in 1984 to ~4,600 in 2023 — a 68% decline. The consolidation was driven by deregulation (Riegle-Neal Act 1994, Gramm-Leach-Bliley Act 1999), economies of scale in banking technology, and the 2008 financial crisis wave of failures and acquisitions.",
+    "dataSource": {
+      "name": "FDIC Statistics at a Glance, BankFind Suite",
+      "url": "https://www.fdic.gov/quarterly-banking-profile/fdic-statistics-glance",
+      "lastUpdated": "2024-12"
+    },
+    "valueLabel": "Number of Banks",
+    "unit": "Banks",
+    "chartData": [
+      { "year": 1935, "value": 14146 },
+      { "year": 1940, "value": 13442 },
+      { "year": 1950, "value": 13446 },
+      { "year": 1960, "value": 13126 },
+      { "year": 1970, "value": 13511 },
+      { "year": 1980, "value": 14434 },
+      { "year": 1984, "value": 14496 },
+      { "year": 1990, "value": 12343 },
+      { "year": 1995, "value": 9940 },
+      { "year": 2000, "value": 8315 },
+      { "year": 2005, "value": 7526 },
+      { "year": 2010, "value": 6530 },
+      { "year": 2015, "value": 5338 },
+      { "year": 2020, "value": 4377 },
+      { "year": 2023, "value": 4587 }
+    ],
+    "annotations": [
+      { "year": 1980, "label": "Deregulation begins", "description": "Depository Institutions Deregulation and Monetary Control Act loosens banking restrictions" },
+      { "year": 1984, "label": "Peak bank count", "description": "Number of FDIC-insured institutions reaches all-time high of ~14,500" },
+      { "year": 1994, "label": "Interstate branching", "description": "Riegle-Neal Act allows interstate banking and branching" },
+      { "year": 1999, "label": "Glass-Steagall repeal", "description": "Gramm-Leach-Bliley Act removes barriers between commercial and investment banking" },
+      { "year": 2008, "label": "Financial crisis", "description": "465 banks fail from 2008-2012; survivors acquire distressed competitors" }
+    ],
+    "causes": [
+      { "name": "Deregulation enabling mergers", "weight": 30, "description": "The Riegle-Neal Act (1994) and Gramm-Leach-Bliley Act (1999) removed geographic and activity restrictions, enabling national mega-banks to form through mergers.", "source": "FDIC", "sourceUrl": "https://www.fdic.gov/history/2000-2009" },
+      { "name": "Technology & economies of scale", "weight": 25, "description": "ATM networks, online banking, and digital infrastructure created massive economies of scale. Larger banks could spread technology costs across more customers.", "source": "Federal Reserve Bank of St. Louis", "sourceUrl": "https://www.stlouisfed.org/on-the-economy/2021/december/steady-decline-number-us-banks" },
+      { "name": "Financial crisis bank failures", "weight": 20, "description": "465 banks failed from 2008-2012, often acquired by larger institutions. The crisis accelerated consolidation as strong banks absorbed weak ones at discount prices.", "source": "FDIC Failed Bank List", "sourceUrl": "https://www.fdic.gov/bank-failures/failed-bank-list" },
+      { "name": "Regulatory compliance costs", "weight": 15, "description": "Post-2008 regulations (Dodd-Frank) imposed compliance costs that disproportionately burdened small banks, making them acquisition targets or forcing closure.", "source": "American Bankers Association", "sourceUrl": "https://www.aba.com/" },
+      { "name": "Too-big-to-fail advantages", "weight": 10, "description": "Large banks enjoy implicit government guarantees, lower borrowing costs, and 'too big to fail' status that gives them a competitive advantage over community banks.", "source": "Congressional Budget Office", "sourceUrl": "https://www.cbo.gov/publication/44309" }
+    ],
+    "skepticView": {
+      "title": "Bank consolidation is a deregulation story with clear legislative causes",
+      "summary": "The number of banks actually INCREASED from 1971 to 1984. The decline started with specific deregulation laws in the 1980s-1990s, not the end of the gold standard.",
+      "interpretation": "Banks consolidated because laws changed to allow it. Before Riegle-Neal, banks couldn't branch across state lines. Before Gramm-Leach-Bliley, commercial and investment banking were separated. These specific policy choices, not monetary system changes, enabled the mega-bank era."
+    },
+    "neutralView": {
+      "title": "Deregulation, technology, and crises drove banking consolidation",
+      "summary": "Banking consolidation was driven by deregulatory legislation, technological economies of scale, and crisis-driven acquisitions — with monetary policy playing an indirect role.",
+      "interpretation": "The consolidation is concerning for competition and financial stability. The top 4 banks now hold 40% of all deposits. But the timeline clearly shows the decline beginning after 1984, driven by specific laws removing barriers to mergers and interstate branching."
+    },
+    "believerView": {
+      "title": "Fiat money's boom-bust cycles killed community banks",
+      "summary": "The credit expansion and financial instability caused by fiat money created boom-bust cycles that systematically destroyed small banks while benefiting large ones with implicit government guarantees.",
+      "interpretation": "Under the gold standard, banking was more stable and local. Fiat money enabled the credit expansion that caused the S&L crisis, 2008 crash, and other events that destroyed small banks. Each crisis made surviving big banks bigger and more powerful, a consolidation cycle only possible in a fiat system."
+    }
+  },
+  {
+    "id": "consumer-debt-per-capita",
+    "category": "prices",
+    "title": "Consumer Debt Per Capita",
+    "subtitle": "Total household debt per person in inflation-adjusted 2023 dollars",
+    "commonClaim": "Americans were forced into debt after 1971 because fiat money eroded their purchasing power.",
+    "actualTrend": "Per-capita household debt (inflation-adjusted) grew from ~$9,600 in 1960 to ~$54,800 in 2023. The fastest growth came from 2000-2007 during the housing bubble. Mortgage debt accounts for ~70% of the total. The growth correlates with credit deregulation, housing financialization, and rising costs outpacing wages.",
+    "dataSource": {
+      "name": "Federal Reserve, G.19 Consumer Credit; NY Fed Household Debt & Credit Report",
+      "url": "https://www.newyorkfed.org/microeconomics/hhdc",
+      "lastUpdated": "2024-12"
+    },
+    "valueLabel": "Debt Per Capita",
+    "unit": "2023 $",
+    "chartData": [
+      { "year": 1960, "value": 9600 },
+      { "year": 1965, "value": 11800 },
+      { "year": 1970, "value": 13900 },
+      { "year": 1975, "value": 15200 },
+      { "year": 1980, "value": 17400 },
+      { "year": 1985, "value": 21600 },
+      { "year": 1990, "value": 27100 },
+      { "year": 1995, "value": 29800 },
+      { "year": 2000, "value": 34500 },
+      { "year": 2005, "value": 43700 },
+      { "year": 2007, "value": 49600 },
+      { "year": 2010, "value": 45800 },
+      { "year": 2015, "value": 41200 },
+      { "year": 2020, "value": 48900 },
+      { "year": 2023, "value": 54800 }
+    ],
+    "annotations": [
+      { "year": 1968, "label": "Truth in Lending Act", "description": "Standardizes credit disclosures, indirectly expanding consumer credit access" },
+      { "year": 1978, "label": "Marquette decision", "description": "Supreme Court allows banks to export interest rates across state lines, enabling credit card expansion" },
+      { "year": 1999, "label": "Gramm-Leach-Bliley", "description": "Financial deregulation enables new consumer lending products" },
+      { "year": 2005, "label": "Bankruptcy reform", "description": "Makes it harder to discharge debt, emboldening lenders to extend more credit" },
+      { "year": 2007, "label": "Housing bubble peak", "description": "Per-capita debt peaks at ~$50,000 as mortgage borrowing reaches unsustainable levels" }
+    ],
+    "causes": [
+      { "name": "Credit market deregulation", "weight": 30, "description": "The 1978 Marquette decision, deregulation acts, and financial innovation enabled credit cards, subprime mortgages, and student loans to expand rapidly.", "source": "Federal Reserve", "sourceUrl": "https://www.federalreserve.gov/releases/g19/current/" },
+      { "name": "Housing financialization", "weight": 25, "description": "Mortgage debt accounts for ~70% of household debt. Government-backed mortgage programs, tax deductibility, and securitization enabled massive mortgage expansion.", "source": "NY Fed Household Debt Report", "sourceUrl": "https://www.newyorkfed.org/microeconomics/hhdc" },
+      { "name": "Rising costs outpacing wages", "weight": 20, "description": "Healthcare, education, and housing costs rose faster than wages, forcing households to borrow to maintain living standards.", "source": "Economic Policy Institute", "sourceUrl": "https://www.epi.org/publication/charting-wage-stagnation/" },
+      { "name": "Student loan expansion", "weight": 15, "description": "Outstanding student loan debt grew from nearly $0 in 1970 to $1.77 trillion in 2023, driven by rising tuition and expanded federal lending.", "source": "Federal Reserve Bank of New York", "sourceUrl": "https://www.newyorkfed.org/microeconomics/hhdc" },
+      { "name": "Cultural shift toward credit use", "weight": 10, "description": "The shift from 'save then buy' to 'buy now, pay later' reflects both financial product availability and changing cultural attitudes toward debt.", "source": "Bureau of Economic Analysis", "sourceUrl": "https://www.bea.gov/data/consumer-spending/main" }
+    ],
+    "skepticView": {
+      "title": "Credit deregulation, not fiat money, drove debt growth",
+      "summary": "Consumer debt growth tracks with specific deregulatory actions: Marquette (1978), DIDMCA (1980), Gramm-Leach-Bliley (1999). Countries with fiat currencies but tighter lending regulations have much lower debt levels.",
+      "interpretation": "Debt growth was modest in the 1970s, accelerating only after financial deregulation. Canada, Australia, and European fiat-currency nations with stronger consumer protections and tighter lending standards have kept household debt more manageable. This is a regulatory story, not a monetary one."
+    },
+    "neutralView": {
+      "title": "Deregulation, rising costs, and easy credit created a debt trap",
+      "summary": "Consumer debt growth reflects credit deregulation, costs outpacing wages, housing financialization, and cultural shifts — with low interest rates from monetary policy enabling the borrowing.",
+      "interpretation": "Easy monetary policy did make borrowing cheaper and more attractive. But the specific mechanisms — credit card deregulation, mortgage securitization, student loan expansion — were policy choices. The debt burden is a real problem, with mortgage debt, student loans, and credit cards all at record levels."
+    },
+    "believerView": {
+      "title": "Fiat money forced Americans into a debt-dependent economy",
+      "summary": "Under the gold standard, credit was constrained and saving was rewarded. Fiat money enabled unlimited credit creation, systematically replacing savings with debt as the basis of the American economy.",
+      "interpretation": "The gold standard constrained credit creation, keeping debt manageable. After 1971, banks could create effectively unlimited credit, flooding the economy with debt-based money. Americans didn't choose to go into debt — they were forced to as fiat money eroded their purchasing power and stagnated their wages."
+    }
+  },
+  {
+    "id": "wealth-bottom-50-percent",
+    "category": "inequality",
+    "title": "Wealth Held by Bottom 50%",
+    "subtitle": "Share of total net worth held by the bottom 50% of households",
+    "commonClaim": "Half of Americans have been left with nothing as fiat money inflated assets they don't own.",
+    "actualTrend": "The bottom 50% held about 3.6% of total net worth in 1989 (when tracking began), fell to negative territory during the financial crisis, and recovered to ~2.5% by 2024. The bottom half's wealth is concentrated in housing equity, making them vulnerable to housing market crashes.",
+    "dataSource": {
+      "name": "Federal Reserve Distributional Financial Accounts (DFA)",
+      "url": "https://fred.stlouisfed.org/series/WFRBSB50215",
+      "lastUpdated": "2024-12"
+    },
+    "valueLabel": "Bottom 50% Wealth Share",
+    "unit": "%",
+    "chartData": [
+      { "year": 1989, "value": 3.6 },
+      { "year": 1992, "value": 3.4 },
+      { "year": 1995, "value": 3.2 },
+      { "year": 1998, "value": 2.8 },
+      { "year": 2001, "value": 2.6 },
+      { "year": 2004, "value": 2.5 },
+      { "year": 2007, "value": 2.1 },
+      { "year": 2009, "value": 0.2 },
+      { "year": 2011, "value": 0.6 },
+      { "year": 2013, "value": 1.0 },
+      { "year": 2016, "value": 1.4 },
+      { "year": 2019, "value": 1.8 },
+      { "year": 2020, "value": 1.9 },
+      { "year": 2021, "value": 2.6 },
+      { "year": 2023, "value": 2.5 }
+    ],
+    "annotations": [
+      { "year": 1989, "label": "Data begins", "description": "Federal Reserve begins tracking wealth distribution through Survey of Consumer Finances" },
+      { "year": 2001, "label": "Dot-com crash", "description": "Stock market decline briefly impacts top wealth share, but bottom 50% unaffected (they own few stocks)" },
+      { "year": 2009, "label": "Housing crash", "description": "Bottom 50% wealth drops to near-zero as home equity — their primary asset — collapses" },
+      { "year": 2020, "label": "Pandemic stimulus", "description": "Direct payments and enhanced unemployment temporarily boost bottom 50% wealth" },
+      { "year": 2021, "label": "Asset boom", "description": "Housing price surge benefits bottom 50% through home equity gains" }
+    ],
+    "causes": [
+      { "name": "Concentrated stock ownership", "weight": 30, "description": "The top 10% own 87% of all stocks. As financial assets appreciated enormously, the bottom 50% — who hold almost no stocks — were left behind.", "source": "Federal Reserve DFA", "sourceUrl": "https://www.federalreserve.gov/releases/z1/dataviz/dfa/distribute/chart/" },
+      { "name": "Housing as sole wealth vehicle for lower half", "weight": 25, "description": "Home equity is the primary (often only) wealth asset for the bottom 50%. Housing crashes wipe out their wealth entirely while stock crashes barely affect them.", "source": "Survey of Consumer Finances", "sourceUrl": "https://www.federalreserve.gov/econres/scf/dataviz/scf/chart/" },
+      { "name": "Student debt & consumer debt", "weight": 20, "description": "Rising debt burdens reduce net worth. The bottom 50% carry proportionally more debt relative to assets, and student loans grew from $260B to $1.77T in 20 years.", "source": "NY Fed", "sourceUrl": "https://www.newyorkfed.org/microeconomics/hhdc" },
+      { "name": "Stagnating wages at the bottom", "weight": 15, "description": "Real wages for bottom-quartile workers barely grew from 1979-2019, leaving little income for saving and wealth building.", "source": "Economic Policy Institute", "sourceUrl": "https://www.epi.org/publication/charting-wage-stagnation/" },
+      { "name": "Intergenerational wealth transfers", "weight": 10, "description": "Wealth begets wealth through inheritance, educational advantages, and better investment access. The bottom 50% rarely receive significant inheritances.", "source": "Federal Reserve", "sourceUrl": "https://www.federalreserve.gov/econres/notes/feds-notes/wealth-inequality-and-the-racial-wealth-gap-20211022.html" }
+    ],
+    "skepticView": {
+      "title": "Wealth concentration reflects stock ownership patterns and asset type, not monetary policy",
+      "summary": "The bottom 50% never owned many stocks. Their wealth is in housing. The 2009 collapse was a housing crisis caused by subprime lending, not fiat money per se.",
+      "interpretation": "This is fundamentally about asset allocation, not monetary systems. The bottom 50% would have almost no stocks under any monetary regime. The real policy levers are: expanding homeownership, reducing debt burdens, creating paths to stock ownership (like universal savings accounts)."
+    },
+    "neutralView": {
+      "title": "Asset inflation widened the wealth gap, with monetary policy as a key enabler",
+      "summary": "The wealth gap results from concentrated asset ownership, housing vulnerability, debt burdens, and stagnant wages — all amplified by monetary policies that inflated financial assets.",
+      "interpretation": "This is one of the more compelling charts for the monetary policy critique. QE and low rates genuinely inflated financial assets owned by the wealthy while doing little for the bottom 50%. The bottom half's wealth is almost entirely in housing equity, making them extremely vulnerable to crashes."
+    },
+    "believerView": {
+      "title": "Fiat money systematically transfers wealth from the bottom to the top",
+      "summary": "Money creation inflates assets owned by the wealthy (stocks, bonds, real estate) while eroding the purchasing power of the wages earned by the bottom 50%. The result is a widening chasm.",
+      "interpretation": "The Cantillon effect in its purest form: new money enters through financial markets and banks, inflating assets held by the already-wealthy. By the time it reaches ordinary workers through wages, prices have already risen. The bottom 50% are running on a treadmill that speeds up every time the Fed prints money."
+    }
+  },
+  {
+    "id": "life-expectancy",
+    "category": "wages",
+    "title": "US Life Expectancy",
+    "subtitle": "Life expectancy at birth in years",
+    "commonClaim": "American health outcomes stagnated as economic conditions deteriorated after 1971.",
+    "actualTrend": "US life expectancy rose from 68.2 years in 1950 to 78.9 in 2014, then stagnated and declined to 76.4 in 2021 before recovering to 78.4 in 2023. The recent decline is driven by the opioid epidemic, 'deaths of despair,' obesity, COVID-19, and uniquely American healthcare access problems.",
+    "dataSource": {
+      "name": "CDC National Center for Health Statistics (NCHS), National Vital Statistics Reports",
+      "url": "https://www.cdc.gov/nchs/nvss/mortality/historical_life_expectancy.htm",
+      "lastUpdated": "2025-07"
+    },
+    "valueLabel": "Life Expectancy (years)",
+    "unit": "Years",
+    "chartData": [
+      { "year": 1950, "value": 68.2 },
+      { "year": 1955, "value": 69.6 },
+      { "year": 1960, "value": 69.7 },
+      { "year": 1965, "value": 70.2 },
+      { "year": 1970, "value": 70.8 },
+      { "year": 1975, "value": 72.6 },
+      { "year": 1980, "value": 73.7 },
+      { "year": 1985, "value": 74.7 },
+      { "year": 1990, "value": 75.4 },
+      { "year": 1995, "value": 75.8 },
+      { "year": 2000, "value": 76.8 },
+      { "year": 2005, "value": 77.6 },
+      { "year": 2010, "value": 78.7 },
+      { "year": 2014, "value": 78.9 },
+      { "year": 2019, "value": 78.8 },
+      { "year": 2020, "value": 77.0 },
+      { "year": 2021, "value": 76.4 },
+      { "year": 2022, "value": 77.5 },
+      { "year": 2023, "value": 78.4 }
+    ],
+    "annotations": [
+      { "year": 1965, "label": "Medicare & Medicaid", "description": "Government healthcare programs expand access for elderly and poor, accelerating life expectancy gains" },
+      { "year": 1990, "label": "AIDS epidemic peak", "description": "HIV/AIDS causes slight stagnation in life expectancy gains" },
+      { "year": 2014, "label": "Pre-opioid peak", "description": "US life expectancy peaks at 78.9 before opioid crisis and other factors cause decline" },
+      { "year": 2017, "label": "Opioid emergency declared", "description": "Drug overdose deaths exceed 70,000/year, driving life expectancy down" },
+      { "year": 2021, "label": "COVID nadir", "description": "COVID-19 pushes life expectancy to lowest point since 1996" }
+    ],
+    "causes": [
+      { "name": "Opioid epidemic & deaths of despair", "weight": 30, "description": "Drug overdose deaths rose from ~17,000 in 1999 to over 100,000 in 2022. Combined with suicide and alcohol-related deaths, 'deaths of despair' reduced life expectancy.", "source": "CDC WONDER Database", "sourceUrl": "https://wonder.cdc.gov/" },
+      { "name": "Healthcare access & cost barriers", "weight": 25, "description": "27 million Americans remain uninsured. Even insured Americans face high deductibles and copays that delay care. The US has fewer doctors per capita than most OECD nations.", "source": "Kaiser Family Foundation", "sourceUrl": "https://www.kff.org/uninsured/issue-brief/key-facts-about-the-uninsured-population/" },
+      { "name": "Obesity & metabolic disease", "weight": 20, "description": "Adult obesity rose from 15% in 1970 to 42% in 2020, driving diabetes, heart disease, and other conditions that reduce life expectancy.", "source": "CDC National Health Statistics", "sourceUrl": "https://www.cdc.gov/obesity/php/data-research/adult-obesity-facts.html" },
+      { "name": "COVID-19 pandemic", "weight": 15, "description": "COVID-19 caused ~1.2 million deaths in the US, reducing life expectancy by 2.4 years from 2019-2021, the steepest decline since WWII.", "source": "CDC NCHS", "sourceUrl": "https://www.cdc.gov/nchs/data/nvsr/nvsr74/nvsr74-06.pdf" },
+      { "name": "Gun violence & homicide", "weight": 10, "description": "The US has a firearm death rate 25x higher than other high-income nations, with over 48,000 gun deaths annually, disproportionately affecting younger Americans.", "source": "CDC Injury Data", "sourceUrl": "https://www.cdc.gov/injury/wisqars/index.html" }
+    ],
+    "skepticView": {
+      "title": "Life expectancy rose steadily for 45 years after 1971",
+      "summary": "The US gained 8 years of life expectancy from 1971 to 2014, contradicting the idea that leaving the gold standard harmed health outcomes. The recent decline has specific, identifiable causes.",
+      "interpretation": "The opioid epidemic, obesity crisis, and COVID pandemic have clear medical and policy roots. Other fiat-currency nations (Japan, Australia, Spain) have life expectancies of 83-84 years. The US lag is about healthcare system design, drug policy, and public health — not monetary policy."
+    },
+    "neutralView": {
+      "title": "Specific health crises, not economic structure, drive the recent decline",
+      "summary": "Life expectancy gains continued for decades after 1971. The post-2014 decline is driven by the opioid epidemic, obesity, healthcare access gaps, and COVID-19.",
+      "interpretation": "There is a plausible indirect connection: economic distress in deindustrialized communities contributed to 'deaths of despair.' But the direct causes are well-documented: Purdue Pharma's marketing of OxyContin, inadequate mental health infrastructure, food system failures driving obesity, and pandemic unpreparedness."
+    },
+    "believerView": {
+      "title": "Economic deterioration after 1971 eventually killed Americans",
+      "summary": "The stagnation of wages, loss of manufacturing jobs, and erosion of community economic stability created the conditions for 'deaths of despair' — opioids, suicide, and alcoholism.",
+      "interpretation": "The decline in life expectancy is concentrated in the same communities devastated by deindustrialization: Appalachia, the Rust Belt, rural America. These are the human casualties of the economic transformation that began in 1971. The opioid epidemic didn't happen in a vacuum — it happened in communities stripped of economic hope."
+    }
+  },
+  {
+    "id": "hours-worked-to-buy-home",
+    "category": "housing",
+    "title": "Hours Worked to Buy a Home",
+    "subtitle": "Median home price divided by median hourly wage (total hours needed)",
+    "commonClaim": "Workers must work far more hours to afford a home than before 1971.",
+    "actualTrend": "The number of hours a median worker must work to buy a median home has increased from ~5,700 hours in 1960 to ~15,700 hours in 2023. This nearly tripled, with the sharpest increases coming in the 2000s housing bubble and the post-2020 surge. The divergence reflects both rising home prices and stagnating real wages.",
+    "dataSource": {
+      "name": "Census Bureau (Median Home Price), BLS (Average Hourly Earnings), FRED (MSPUS, AHETPI)",
+      "url": "https://fred.stlouisfed.org/series/MSPUS",
+      "lastUpdated": "2024-12"
+    },
+    "valueLabel": "Hours to Buy Median Home",
+    "unit": "Hours",
+    "chartData": [
+      { "year": 1960, "value": 5714 },
+      { "year": 1965, "value": 5890 },
+      { "year": 1970, "value": 6280 },
+      { "year": 1975, "value": 7080 },
+      { "year": 1980, "value": 8980 },
+      { "year": 1985, "value": 8760 },
+      { "year": 1990, "value": 9350 },
+      { "year": 1995, "value": 9080 },
+      { "year": 2000, "value": 10210 },
+      { "year": 2005, "value": 13440 },
+      { "year": 2007, "value": 14030 },
+      { "year": 2010, "value": 10530 },
+      { "year": 2015, "value": 11420 },
+      { "year": 2020, "value": 12370 },
+      { "year": 2023, "value": 15710 }
+    ],
+    "annotations": [
+      { "year": 1971, "label": "Nixon Shock", "description": "Dollar decoupled from gold; housing affordability begins deteriorating" },
+      { "year": 1980, "label": "Volcker rates", "description": "High interest rates temporarily suppress home prices but increase monthly costs" },
+      { "year": 2006, "label": "Housing bubble peak", "description": "Subprime lending pushes prices to unsustainable levels" },
+      { "year": 2010, "label": "Post-crash low", "description": "Housing affordability briefly improves after the bubble bursts" },
+      { "year": 2022, "label": "New affordability crisis", "description": "Post-pandemic price surge and rising rates create worst affordability in decades" }
+    ],
+    "causes": [
+      { "name": "Housing supply constraints", "weight": 30, "description": "Restrictive zoning, NIMBYism, and land use regulations limit new housing construction in high-demand areas, driving up prices.", "source": "Joint Center for Housing Studies, Harvard", "sourceUrl": "https://www.jchs.harvard.edu/" },
+      { "name": "Stagnating median wages", "weight": 25, "description": "Median hourly wages grew only ~15% in real terms from 1970-2023, while home prices tripled. The numerator grows faster than the denominator.", "source": "Bureau of Labor Statistics", "sourceUrl": "https://fred.stlouisfed.org/series/AHETPI" },
+      { "name": "Low interest rates inflating prices", "weight": 20, "description": "Low mortgage rates increased buying power, but pushed up prices as more money chased limited housing. The 2020-2021 near-zero rates sent prices to records.", "source": "Federal Reserve", "sourceUrl": "https://fred.stlouisfed.org/series/MORTGAGE30US" },
+      { "name": "Investor & institutional buying", "weight": 15, "description": "Institutional investors, REITs, and foreign buyers increased demand for housing as an investment asset, competing with first-time homebuyers.", "source": "National Association of Realtors", "sourceUrl": "https://www.nar.realtor/" },
+      { "name": "Construction cost increases", "weight": 10, "description": "Labor shortages, material costs (lumber, concrete), and regulatory compliance increased the cost of building new homes.", "source": "National Association of Home Builders", "sourceUrl": "https://www.nahb.org/news-and-economics/housing-economics" }
+    ],
+    "skepticView": {
+      "title": "Zoning and supply constraints, not fiat money, made housing expensive",
+      "summary": "Housing affordability varies enormously by location. Cities that allow construction (Houston, Raleigh) remain affordable. Supply-constrained cities (SF, NYC) are not. This is a land use problem.",
+      "interpretation": "If fiat money caused housing unaffordability, it would affect all housing markets equally. Instead, the crisis is concentrated in places with restrictive zoning. Texas, a fiat-money state, has maintained housing affordability through permissive building policies."
+    },
+    "neutralView": {
+      "title": "Supply constraints, wage stagnation, and monetary policy all contribute",
+      "summary": "The tripling of hours needed to buy a home reflects insufficient housing construction, stagnant real wages, and low interest rates that inflated prices.",
+      "interpretation": "This chart captures a genuinely alarming trend. A median worker now must work nearly 3x as long to buy a median home as in 1960. The causes are multi-factorial: zoning laws restrict supply, wages haven't kept pace, and low rates inflated prices. Monetary policy is one piece, but housing policy is the bigger lever."
+    },
+    "believerView": {
+      "title": "Fiat money made housing unaffordable for working Americans",
+      "summary": "Under the gold standard, homes cost 2-3 years of income. Fiat money's credit expansion and asset inflation pushed housing to 6+ years of income, making the American Dream impossible for many.",
+      "interpretation": "The numbers are stark: 5,700 hours in 1960 versus 15,700 in 2023. The dollar lost 95% of its purchasing power since 1971, and housing prices — the largest purchase most Americans make — absorbed all of that devaluation and more. This is fiat money's most visible failure."
+    }
   }
 ]
