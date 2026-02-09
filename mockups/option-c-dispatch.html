@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Option C: The Dispatch — Check the Charts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #FEFBF4;
+    --bg-card: #FFFFFF;
+    --bg-warm: #F7F3EA;
+    --bg-dark: #2D2A26;
+    --ink: #2D2A26;
+    --ink-secondary: #706B63;
+    --ink-tertiary: #A39E96;
+    --blue: #4A72B0;
+    --burnt: #C55A3A;
+    --sage: #5A8C6F;
+    --plum: #7B5EA7;
+    --rule: #E5E0D6;
+    --rule-light: #EEEBE4;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Instrument Sans', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 430px;
+    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* === HEADER === */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--rule);
+  }
+  .header-logo {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .header-logo span { color: var(--burnt); }
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .header-actions a {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-secondary);
+    text-decoration: none;
+  }
+  .header-pill {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--bg);
+    background: var(--ink);
+    padding: 6px 14px;
+    border-radius: 100px;
+    text-decoration: none;
+  }
+
+  /* === MOCK INDICATOR === */
+  .mock-banner {
+    background: var(--ink);
+    color: var(--bg);
+    text-align: center;
+    padding: 8px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-family: var(--mono);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+
+  /* === HERO (full-screen snap) === */
+  .hero {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 24px;
+    position: relative;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-warm);
+    border: 1px solid var(--rule);
+    border-radius: 100px;
+    padding: 5px 12px 5px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-secondary);
+    margin-bottom: 24px;
+    width: fit-content;
+  }
+  .hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--sage);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 44px;
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    font-weight: 800;
+    margin-bottom: 20px;
+  }
+  .hero h1 .accent { color: var(--burnt); font-style: italic; font-weight: 600; }
+  .hero h1 .muted { color: var(--ink-secondary); font-weight: 300; }
+  .hero-sub {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink-secondary);
+    max-width: 320px;
+    margin-bottom: 32px;
+  }
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--burnt);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(197, 90, 58, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .hero-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(197, 90, 58, 0.4);
+  }
+  .hero-stats {
+    display: flex;
+    gap: 24px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+  }
+  .hero-stat-value {
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .hero-stat-label {
+    font-size: 11px;
+    color: var(--ink-tertiary);
+    margin-top: 2px;
+  }
+  .hero-scroll {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: var(--ink-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    animation: bounce 2s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* === CHART DEMO (in hero) === */
+  .hero-chart {
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 28px;
+    box-shadow: 0 2px 12px rgba(45, 42, 38, 0.06);
+  }
+  .hero-chart-header {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--rule-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .hero-chart-title {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .hero-chart-range {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-tertiary);
+    background: var(--bg-warm);
+    padding: 3px 8px;
+    border-radius: 4px;
+  }
+  .hero-chart-area {
+    padding: 16px;
+    height: 180px;
+  }
+
+  /* === HORIZONTAL SCROLL CAROUSEL === */
+  .carousel-section {
+    padding: 32px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .carousel-header {
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+  }
+  .carousel-header h2 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .carousel-header a {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--burnt);
+    text-decoration: none;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    padding: 0 24px 16px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+
+  /* === CHART CARD (carousel) === */
+  .card {
+    flex-shrink: 0;
+    width: 280px;
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    overflow: hidden;
+    scroll-snap-align: start;
+    transition: box-shadow 0.2s;
+    text-decoration: none;
+    color: var(--ink);
+    display: block;
+  }
+  .card:hover {
+    box-shadow: 0 4px 20px rgba(45, 42, 38, 0.1);
+  }
+  .card-spark {
+    height: 100px;
+    padding: 16px;
+    background: var(--bg-warm);
+    position: relative;
+  }
+  .card-category {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+  }
+  .card-category.wages { color: var(--blue); }
+  .card-category.housing { color: var(--burnt); }
+  .card-category.inequality { color: var(--plum); }
+  .card-category.trade { color: var(--sage); }
+  .card-category.debt { color: var(--burnt); }
+  .card-category.demographics { color: var(--blue); }
+  .card-body {
+    padding: 14px 16px 16px;
+  }
+  .card-title {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 6px;
+  }
+  .card-claim {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--ink-secondary);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-claim strong {
+    color: var(--burnt);
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .card-footer {
+    padding: 0 16px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-factors {
+    font-size: 10px;
+    color: var(--ink-tertiary);
+    font-family: var(--mono);
+  }
+  .card-arrow {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--bg-warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--ink-secondary);
+    transition: background 0.2s, color 0.2s;
+  }
+  .card:hover .card-arrow {
+    background: var(--burnt);
+    color: white;
+  }
+
+  /* === PAGE SEPARATOR === */
+  .page-separator {
+    padding: 40px 24px;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg-warm);
+  }
+  .page-separator h2 {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink-tertiary);
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  /* === DETAIL PAGE === */
+  .detail-back {
+    padding: 12px 24px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--ink-tertiary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid var(--rule-light);
+    width: 100%;
+  }
+  .detail-header {
+    padding: 20px 24px 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .detail-category {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--blue);
+    margin-bottom: 8px;
+  }
+  .detail-title {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .detail-subtitle {
+    font-size: 14px;
+    color: var(--ink-secondary);
+    line-height: 1.5;
+  }
+
+  /* === DETAIL CHART (pinned feel) === */
+  .detail-chart {
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--rule);
+  }
+  .detail-chart-inner {
+    padding: 20px;
+    height: 240px;
+  }
+
+  /* === PERSPECTIVE SWIPER === */
+  .perspective-section {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .perspective-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-tertiary);
+    margin-bottom: 14px;
+  }
+  .perspective-swiper {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+    scrollbar-width: none;
+  }
+  .perspective-swiper::-webkit-scrollbar { display: none; }
+  .perspective-card {
+    flex-shrink: 0;
+    width: calc(100% - 48px);
+    scroll-snap-align: center;
+    border-radius: 14px;
+    padding: 18px;
+    border: 2px solid var(--rule);
+    position: relative;
+  }
+  .perspective-card.skeptic {
+    border-color: var(--plum);
+    background: #F8F5FC;
+  }
+  .perspective-card.neutral {
+    border-color: var(--ink-tertiary);
+    background: var(--bg-card);
+  }
+  .perspective-card.believer {
+    border-color: var(--burnt);
+    background: #FEF7F4;
+  }
+  .perspective-card-tag {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+  }
+  .skeptic .perspective-card-tag { color: var(--plum); }
+  .neutral .perspective-card-tag { color: var(--ink-tertiary); }
+  .believer .perspective-card-tag { color: var(--burnt); }
+  .perspective-card h4 {
+    font-family: var(--serif);
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .perspective-card p {
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--ink-secondary);
+  }
+
+  /* === CLAIM / REALITY CARDS === */
+  .insight-cards {
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .insight-card {
+    border-radius: 14px;
+    padding: 16px;
+  }
+  .insight-card.claim {
+    background: #FEF2F0;
+    border: 1px solid rgba(197, 90, 58, 0.2);
+  }
+  .insight-card.reality {
+    background: #F0F7F2;
+    border: 1px solid rgba(90, 140, 111, 0.2);
+  }
+  .insight-card-label {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .claim .insight-card-label { color: var(--burnt); }
+  .reality .insight-card-label { color: var(--sage); }
+  .insight-card-label .icon {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 800;
+  }
+  .claim .icon { background: var(--burnt); color: white; }
+  .reality .icon { background: var(--sage); color: white; }
+  .insight-card p {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .claim p { font-style: italic; }
+
+  /* === CAUSE FACTORS (expandable) === */
+  .causes-section {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .causes-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-tertiary);
+    margin-bottom: 16px;
+  }
+  .cause-item {
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    background: var(--bg-card);
+    transition: border-color 0.2s;
+  }
+  .cause-item:hover { border-color: var(--blue); }
+  .cause-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .cause-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .cause-weight {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--blue);
+    background: rgba(74, 114, 176, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .cause-bar-track {
+    height: 6px;
+    background: var(--bg-warm);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .cause-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: var(--blue);
+  }
+  .cause-desc {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--ink-secondary);
+  }
+  .cause-source {
+    margin-top: 6px;
+    font-size: 10px;
+    color: var(--ink-tertiary);
+    font-family: var(--mono);
+  }
+
+  /* === BOTTOM NAV === */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 430px;
+    background: var(--bg);
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0 28px;
+    z-index: 100;
+  }
+  .bottom-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--ink-tertiary);
+    padding: 4px 16px;
+  }
+  .bottom-nav a.active { color: var(--burnt); }
+  .bottom-nav-icon {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  /* Scroll snap for sections */
+  .snap-container {
+    scroll-snap-type: y proximity;
+  }
+  .snap-section {
+    scroll-snap-align: start;
+  }
+
+  /* Extra bottom padding for fixed nav */
+  .page-end { padding-bottom: 100px; }
+
+  .swipe-hint {
+    text-align: center;
+    font-size: 10px;
+    color: var(--ink-tertiary);
+    padding: 4px;
+    letter-spacing: 0.06em;
+  }
+</style>
+</head>
+<body>
+
+<div class="mock-banner">Mock C — "The Dispatch" — Mobile 430px</div>
+
+<!-- ===================== HOME PAGE ===================== -->
+
+<header class="header">
+  <a href="#" class="header-logo">Check the Charts<span>.</span></a>
+  <div class="header-actions">
+    <a href="#detail-section">About</a>
+    <a href="#explore-section" class="header-pill">Explore</a>
+  </div>
+</header>
+
+<section class="hero snap-section">
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    A Data Literacy Project
+  </div>
+
+  <h1>
+    What <span class="accent">really</span><br>
+    happened<br>
+    <span class="muted">in 1971?</span>
+  </h1>
+
+  <p class="hero-sub">
+    Complex trends rarely have single causes. We show the full picture — not propaganda.
+  </p>
+
+  <a href="#explore-section" class="hero-cta">
+    Explore the Charts
+    <span>&rarr;</span>
+  </a>
+
+  <div class="hero-stats">
+    <div>
+      <div class="hero-stat-value">14</div>
+      <div class="hero-stat-label">Charts</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">70</div>
+      <div class="hero-stat-label">Factors</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">42</div>
+      <div class="hero-stat-label">Perspectives</div>
+    </div>
+    <div>
+      <div class="hero-stat-value">61</div>
+      <div class="hero-stat-label">Sources</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    Scroll
+    <span>&darr;</span>
+  </div>
+</section>
+
+<!-- DEMO CHART -->
+<div class="hero-chart snap-section" style="margin: 0;">
+  <div class="hero-chart-header">
+    <span class="hero-chart-title">Productivity vs. Compensation</span>
+    <span class="hero-chart-range">1948–2023</span>
+  </div>
+  <div class="hero-chart-area">
+    <svg viewBox="0 0 390 160" preserveAspectRatio="none" style="width:100%;height:100%;">
+      <line x1="0" y1="40" x2="390" y2="40" stroke="#E5E0D6" stroke-width="0.5"/>
+      <line x1="0" y1="80" x2="390" y2="80" stroke="#E5E0D6" stroke-width="0.5"/>
+      <line x1="0" y1="120" x2="390" y2="120" stroke="#E5E0D6" stroke-width="0.5"/>
+      <line x1="117" y1="0" x2="117" y2="160" stroke="#C55A3A" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
+      <text x="121" y="12" fill="#C55A3A" font-size="8" font-family="JetBrains Mono, monospace" font-weight="600">1971</text>
+      <polyline points="0,140 50,130 100,115 117,105 150,94 200,76 250,55 300,38 350,25 390,16" fill="none" stroke="#4A72B0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="0,140 50,132 100,118 117,110 150,107 200,104 250,100 300,96 350,94 390,90" fill="none" stroke="#C55A3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div style="padding: 10px 16px 14px; border-top: 1px solid var(--rule-light); display: flex; gap: 20px; justify-content: center;">
+    <span style="display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink-secondary);">
+      <span style="width: 12px; height: 2px; background: var(--blue); border-radius: 1px; display: inline-block;"></span>
+      Productivity
+    </span>
+    <span style="display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink-secondary);">
+      <span style="width: 12px; height: 2px; background: var(--burnt); border-radius: 1px; display: inline-block;"></span>
+      Compensation
+    </span>
+  </div>
+</div>
+
+<!-- ===================== EXPLORE (CAROUSEL ROWS) ===================== -->
+
+<div id="explore-section">
+
+<!-- WAGES CAROUSEL -->
+<div class="carousel-section snap-section">
+  <div class="carousel-header">
+    <h2>Wages</h2>
+    <a href="#">See all &rarr;</a>
+  </div>
+  <div class="carousel-track">
+    <a href="#detail-section" class="card">
+      <div class="card-spark">
+        <span class="card-category wages">Wages</span>
+        <svg viewBox="0 0 280 68" preserveAspectRatio="none" style="width:100%;height:100%;position:absolute;bottom:0;left:0;right:0;">
+          <polyline points="0,58 35,54 70,46 105,40 140,32 175,22 210,15 245,10 280,5" fill="none" stroke="#4A72B0" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+          <polyline points="0,58 35,56 70,52 105,50 140,48 175,46 210,44 245,42 280,40" fill="none" stroke="#C55A3A" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Wage-Productivity Gap</div>
+        <div class="card-claim"><strong>Claim: </strong>&ldquo;The gold standard ended and wages decoupled.&rdquo;</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-factors">5 factors</span>
+        <span class="card-arrow">&rarr;</span>
+      </div>
+    </a>
+
+    <a href="#" class="card">
+      <div class="card-spark">
+        <span class="card-category wages">Wages</span>
+        <svg viewBox="0 0 280 68" preserveAspectRatio="none" style="width:100%;height:100%;position:absolute;bottom:0;left:0;right:0;">
+          <polyline points="0,35 35,38 70,42 105,44 140,46 175,48 210,50 245,52 280,55" fill="none" stroke="#4A72B0" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Labor Share of GDP</div>
+        <div class="card-claim"><strong>Claim: </strong>&ldquo;Workers get a shrinking share of the economy.&rdquo;</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-factors">5 factors</span>
+        <span class="card-arrow">&rarr;</span>
+      </div>
+    </a>
+
+    <a href="#" class="card" style="opacity:0.5;">
+      <div class="card-spark" style="height:100px;display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:12px;color:var(--ink-tertiary);font-weight:600;">+ More coming</span>
+      </div>
+      <div class="card-body">
+        <div class="card-title" style="color:var(--ink-tertiary);">More charts soon</div>
+      </div>
+    </a>
+  </div>
+  <div class="swipe-hint">&larr; Swipe to browse &rarr;</div>
+</div>
+
+<!-- HOUSING / INEQUALITY CAROUSEL -->
+<div class="carousel-section snap-section">
+  <div class="carousel-header">
+    <h2>Housing &amp; Inequality</h2>
+    <a href="#">See all &rarr;</a>
+  </div>
+  <div class="carousel-track">
+    <a href="#" class="card">
+      <div class="card-spark">
+        <span class="card-category housing">Housing</span>
+        <svg viewBox="0 0 280 68" preserveAspectRatio="none" style="width:100%;height:100%;position:absolute;bottom:0;left:0;right:0;">
+          <polyline points="0,55 50,52 100,48 150,38 200,24 240,14 280,8" fill="none" stroke="#C55A3A" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Housing Price&#8209;to&#8209;Income</div>
+        <div class="card-claim"><strong>Claim: </strong>&ldquo;Fiat currency destroyed affordability.&rdquo;</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-factors">5 factors</span>
+        <span class="card-arrow">&rarr;</span>
+      </div>
+    </a>
+
+    <a href="#" class="card">
+      <div class="card-spark">
+        <span class="card-category inequality">Inequality</span>
+        <svg viewBox="0 0 280 68" preserveAspectRatio="none" style="width:100%;height:100%;position:absolute;bottom:0;left:0;right:0;">
+          <polyline points="0,20 40,28 80,38 120,48 160,54 200,50 240,32 280,14" fill="none" stroke="#7B5EA7" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Top 1% Income Share</div>
+        <div class="card-claim"><strong>Claim: </strong>&ldquo;Gold standard ended, inequality soared.&rdquo;</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-factors">5 factors</span>
+        <span class="card-arrow">&rarr;</span>
+      </div>
+    </a>
+
+    <a href="#" class="card">
+      <div class="card-spark">
+        <span class="card-category inequality">Inequality</span>
+        <svg viewBox="0 0 280 68" preserveAspectRatio="none" style="width:100%;height:100%;position:absolute;bottom:0;left:0;right:0;">
+          <polyline points="0,50 50,46 100,40 150,34 200,28 240,20 280,14" fill="none" stroke="#7B5EA7" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Gini Coefficient</div>
+        <div class="card-claim"><strong>Claim: </strong>&ldquo;Income inequality has exploded.&rdquo;</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-factors">5 factors</span>
+        <span class="card-arrow">&rarr;</span>
+      </div>
+    </a>
+  </div>
+  <div class="swipe-hint">&larr; Swipe to browse &rarr;</div>
+</div>
+
+<!-- TRADE & DEBT CAROUSEL -->
+<div class="carousel-section snap-section">
+  <div class="carousel-header">
+    <h2>Trade &amp; Debt</h2>
+    <a href="#">See all &rarr;</a>
+  </div>
+  <div class="carousel-track">
+    <a href="#" class="card">
+      <div class="card-spark">
+        <span class="card-category trade">Trade</span>
+        <svg viewBox="0 0 280 68" preserveAspectRatio="none" style="width:100%;height:100%;position:absolute;bottom:0;left:0;right:0;">
+          <polyline points="0,20 50,22 100,30 150,42 200,50 240,56 280,60" fill="none" stroke="#5A8C6F" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">US Trade Balance</div>
+        <div class="card-claim"><strong>Claim: </strong>&ldquo;Fiat money caused permanent trade deficits.&rdquo;</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-factors">5 factors</span>
+        <span class="card-arrow">&rarr;</span>
+      </div>
+    </a>
+
+    <a href="#" class="card">
+      <div class="card-spark">
+        <span class="card-category debt">Debt</span>
+        <svg viewBox="0 0 280 68" preserveAspectRatio="none" style="width:100%;height:100%;position:absolute;bottom:0;left:0;right:0;">
+          <polyline points="0,55 50,52 100,46 150,38 200,24 240,12 280,5" fill="none" stroke="#C55A3A" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">Federal Debt&#8209;to&#8209;GDP</div>
+        <div class="card-claim"><strong>Claim: </strong>&ldquo;Without gold, governments print unlimited debt.&rdquo;</div>
+      </div>
+      <div class="card-footer">
+        <span class="card-factors">5 factors</span>
+        <span class="card-arrow">&rarr;</span>
+      </div>
+    </a>
+  </div>
+  <div class="swipe-hint">&larr; Swipe to browse &rarr;</div>
+</div>
+
+</div>
+
+<!-- PAGE SEPARATOR -->
+<div class="page-separator" id="detail-section">
+  <h2>Chart Detail View</h2>
+</div>
+
+<!-- ===================== DETAIL PAGE ===================== -->
+
+<a href="#explore-section" class="detail-back">&larr; All Charts</a>
+
+<div class="detail-header">
+  <div class="detail-category">Wages</div>
+  <h1 class="detail-title">Wage&#8209;Productivity Gap</h1>
+  <p class="detail-subtitle">Net productivity rose 59.7% since 1979 while typical worker compensation grew only 15.8%.</p>
+</div>
+
+<!-- Pinned chart -->
+<div class="detail-chart">
+  <div class="detail-chart-inner">
+    <svg viewBox="0 0 390 200" preserveAspectRatio="none" style="width:100%;height:100%;">
+      <line x1="0" y1="50" x2="390" y2="50" stroke="#E5E0D6" stroke-width="0.5"/>
+      <line x1="0" y1="100" x2="390" y2="100" stroke="#E5E0D6" stroke-width="0.5"/>
+      <line x1="0" y1="150" x2="390" y2="150" stroke="#E5E0D6" stroke-width="0.5"/>
+      <line x1="117" y1="0" x2="117" y2="200" stroke="#C55A3A" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
+      <text x="121" y="14" fill="#C55A3A" font-size="9" font-family="JetBrains Mono, monospace" font-weight="600">1971</text>
+      <polyline points="0,180 50,168 100,148 117,135 150,122 200,100 250,72 300,50 350,35 390,22" fill="none" stroke="#4A72B0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="0,180 50,170 100,152 117,142 150,138 200,134 250,128 300,124 350,120 390,116" fill="none" stroke="#C55A3A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div style="padding: 10px 20px 14px; border-top: 1px solid var(--rule-light); display: flex; gap: 20px; justify-content: center;">
+    <span style="display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink-secondary);">
+      <span style="width: 12px; height: 2px; background: var(--blue); border-radius: 1px; display: inline-block;"></span>
+      Productivity
+    </span>
+    <span style="display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--ink-secondary);">
+      <span style="width: 12px; height: 2px; background: var(--burnt); border-radius: 1px; display: inline-block;"></span>
+      Compensation
+    </span>
+  </div>
+</div>
+
+<!-- Claim vs Reality -->
+<div class="insight-cards">
+  <div class="insight-card claim">
+    <div class="insight-card-label">
+      <span class="icon">!</span>
+      Common Claim
+    </div>
+    <p>&ldquo;Ending the gold standard in 1971 caused wages to decouple from productivity.&rdquo;</p>
+  </div>
+  <div class="insight-card reality">
+    <div class="insight-card-label">
+      <span class="icon">&check;</span>
+      What the Data Shows
+    </div>
+    <p>The gap began widening in the late 1970s due to multiple converging factors including technology, globalization, declining union power, and policy changes.</p>
+  </div>
+</div>
+
+<!-- Perspective Swiper -->
+<div class="perspective-section">
+  <div class="perspective-label">Perspectives &mdash; swipe to compare</div>
+  <div class="perspective-swiper">
+    <div class="perspective-card skeptic">
+      <div class="perspective-card-tag">Skeptic</div>
+      <h4>Correlation &ne; Causation</h4>
+      <p>The timing is suspicious but the gap didn't emerge until the late 1970s. Technology and deunionization are stronger explanatory variables than monetary policy.</p>
+    </div>
+    <div class="perspective-card neutral">
+      <div class="perspective-card-tag">Neutral</div>
+      <h4>Multiple Forces at Play</h4>
+      <p>The wage-productivity gap involves at least five major factors. The strongest predictors are technological change, declining unionization, and trade policy shifts.</p>
+    </div>
+    <div class="perspective-card believer">
+      <div class="perspective-card-tag">Believer</div>
+      <h4>Money Printing Enabled It</h4>
+      <p>Without gold discipline, inflation eroded real wages while asset prices rose. Fiat currency didn't cause every factor, but it enabled the conditions that allowed the gap to persist.</p>
+    </div>
+  </div>
+  <div class="swipe-hint">&larr; Swipe between perspectives &rarr;</div>
+</div>
+
+<!-- Cause Factors -->
+<div class="causes-section">
+  <div class="causes-label">Causal Factors</div>
+
+  <div class="cause-item">
+    <div class="cause-top">
+      <span class="cause-name">Technology & Automation</span>
+      <span class="cause-weight">30%</span>
+    </div>
+    <div class="cause-bar-track"><div class="cause-bar-fill" style="width:30%"></div></div>
+    <div class="cause-desc">Computers replaced routine tasks, boosting output while reducing bargaining power for routine jobs.</div>
+    <div class="cause-source">Source: Autor, Levy & Murnane (2003)</div>
+  </div>
+
+  <div class="cause-item">
+    <div class="cause-top">
+      <span class="cause-name">Declining Unionization</span>
+      <span class="cause-weight">25%</span>
+    </div>
+    <div class="cause-bar-track"><div class="cause-bar-fill" style="width:25%"></div></div>
+    <div class="cause-desc">Union membership fell from 27% to 10%, reducing workers' collective bargaining power.</div>
+    <div class="cause-source">Source: Bureau of Labor Statistics</div>
+  </div>
+
+  <div class="cause-item">
+    <div class="cause-top">
+      <span class="cause-name">Globalization & Trade</span>
+      <span class="cause-weight">20%</span>
+    </div>
+    <div class="cause-bar-track"><div class="cause-bar-fill" style="width:20%"></div></div>
+    <div class="cause-desc">Competition from lower-wage countries put downward pressure on domestic wages.</div>
+    <div class="cause-source">Source: Autor, Dorn & Hanson (2013)</div>
+  </div>
+
+  <div class="cause-item">
+    <div class="cause-top">
+      <span class="cause-name">Policy & Deregulation</span>
+      <span class="cause-weight">15%</span>
+    </div>
+    <div class="cause-bar-track"><div class="cause-bar-fill" style="width:15%"></div></div>
+    <div class="cause-desc">Tax policy shifts, minimum wage stagnation, and financial deregulation redirected gains toward capital owners.</div>
+    <div class="cause-source">Source: Congressional Budget Office</div>
+  </div>
+
+  <div class="cause-item">
+    <div class="cause-top">
+      <span class="cause-name">Monetary Policy Shift</span>
+      <span class="cause-weight">10%</span>
+    </div>
+    <div class="cause-bar-track"><div class="cause-bar-fill" style="width:10%"></div></div>
+    <div class="cause-desc">End of Bretton Woods enabled inflation and financialization — a contributing factor, not the sole cause.</div>
+    <div class="cause-source">Source: Federal Reserve History</div>
+  </div>
+</div>
+
+<div class="page-end" style="padding: 40px 24px 120px; text-align: center;">
+  <p style="font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--ink-tertiary);">
+    End of mockup
+  </p>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+  <a href="#">
+    <span class="bottom-nav-icon">&#9750;</span>
+    Home
+  </a>
+  <a href="#explore-section" class="active">
+    <span class="bottom-nav-icon">&#9783;</span>
+    Explore
+  </a>
+  <a href="#">
+    <span class="bottom-nav-icon">&#8505;</span>
+    About
+  </a>
+</nav>
+
+</body>
+</html>

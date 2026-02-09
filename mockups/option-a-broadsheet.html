@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Option A: The Broadsheet — Check the Charts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #FAF9F6;
+    --bg-card: #FFFFFF;
+    --ink: #1A1A1A;
+    --ink-secondary: #6B6B6B;
+    --ink-tertiary: #9A9A9A;
+    --accent: #D44638;
+    --accent-muted: #D4463815;
+    --rule: #E0DDD8;
+    --rule-dark: #C8C4BE;
+    --blue-data: #2563EB;
+    --orange-data: #D97706;
+    --green-data: #059669;
+    --serif: 'Instrument Serif', Georgia, serif;
+    --sans: 'DM Sans', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+  }
+
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    max-width: 430px;
+    margin: 0 auto;
+    min-height: 100vh;
+    border-left: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    position: relative;
+  }
+
+  /* === HEADER === */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 2px solid var(--ink);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-logo {
+    font-family: var(--serif);
+    font-size: 20px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .header-nav {
+    display: flex;
+    gap: 20px;
+  }
+  .header-nav a {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-secondary);
+    text-decoration: none;
+  }
+  .header-nav a:hover { color: var(--ink); }
+
+  /* === MASTHEAD === */
+  .masthead {
+    border-bottom: 1px solid var(--rule);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .masthead-date {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-tertiary);
+    letter-spacing: 0.05em;
+  }
+  .masthead-badge {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+
+  /* === HERO === */
+  .hero {
+    padding: 40px 20px 32px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .hero-kicker {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: 42px;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-secondary);
+    max-width: 340px;
+    font-weight: 300;
+  }
+  .hero-byline {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-size: 11px;
+    color: var(--ink-tertiary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* === CHART HERO === */
+  .chart-hero {
+    width: 100%;
+    background: var(--bg-card);
+    border-bottom: 1px solid var(--rule);
+  }
+  .chart-hero-label {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .chart-hero-label span:first-child {
+    font-family: var(--serif);
+    font-size: 14px;
+    font-style: italic;
+    color: var(--ink-secondary);
+  }
+  .chart-hero-label span:last-child {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-tertiary);
+  }
+  .chart-area {
+    padding: 20px;
+    height: 220px;
+    position: relative;
+  }
+  .chart-svg { width: 100%; height: 100%; }
+  .chart-legend {
+    padding: 10px 20px 14px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  .chart-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    color: var(--ink-secondary);
+  }
+  .chart-legend-dot {
+    width: 12px;
+    height: 2px;
+    border-radius: 1px;
+  }
+
+  /* === PULL QUOTE === */
+  .pull-quote {
+    padding: 32px 20px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .pull-quote::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 32px;
+    bottom: 32px;
+    width: 3px;
+    background: var(--accent);
+  }
+  .pull-quote p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.35;
+    font-style: italic;
+    color: var(--ink);
+    padding-left: 20px;
+    letter-spacing: -0.01em;
+  }
+  .pull-quote cite {
+    display: block;
+    margin-top: 12px;
+    padding-left: 20px;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-style: normal;
+    color: var(--ink-tertiary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* === SECTION DIVIDER === */
+  .section-divider {
+    padding: 0 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .section-divider-inner {
+    padding: 10px 0;
+    border-bottom: none;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-tertiary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-divider-inner::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  /* === EXPLORE — CATEGORY TAB BAR === */
+  .category-bar {
+    position: sticky;
+    top: 49px;
+    z-index: 90;
+    background: var(--bg);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    display: flex;
+    gap: 0;
+  }
+  .category-bar::-webkit-scrollbar { display: none; }
+  .category-tab {
+    flex-shrink: 0;
+    padding: 12px 14px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-tertiary);
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: var(--sans);
+    white-space: nowrap;
+  }
+  .category-tab.active {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+
+  /* === EDITORIAL CHART CARD === */
+  .chart-entry {
+    border-bottom: 1px solid var(--rule);
+    padding: 24px 20px;
+  }
+  .chart-entry-category {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+  .chart-entry h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .chart-entry-sub {
+    font-size: 14px;
+    color: var(--ink-secondary);
+    line-height: 1.45;
+    margin-bottom: 16px;
+    font-weight: 300;
+  }
+  .chart-entry-spark {
+    width: 100%;
+    height: 64px;
+    background: var(--bg-card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    margin-bottom: 14px;
+    overflow: hidden;
+  }
+  .chart-entry-claim {
+    font-size: 13px;
+    color: var(--ink-secondary);
+    line-height: 1.5;
+    padding-left: 12px;
+    border-left: 2px solid var(--accent);
+  }
+  .chart-entry-claim strong {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .chart-entry-cta {
+    margin-top: 14px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .chart-entry-cta::after {
+    content: '\2192';
+    font-size: 14px;
+    transition: transform 0.2s;
+  }
+  .chart-entry:hover .chart-entry-cta::after {
+    transform: translateX(4px);
+  }
+
+  /* === DETAIL PAGE — CLAIM VS REALITY === */
+  .claim-reality {
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .claim-box, .reality-box {
+    padding: 16px;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .claim-box {
+    background: #FEF2F2;
+    border-left: 3px solid var(--accent);
+  }
+  .reality-box {
+    background: #F0FDF4;
+    border-left: 3px solid var(--green-data);
+  }
+  .box-label {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 6px;
+  }
+  .claim-box .box-label { color: var(--accent); }
+  .reality-box .box-label { color: var(--green-data); }
+  .box-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .claim-box .box-text { font-style: italic; }
+
+  /* === CAUSE FACTOR (EDITORIAL) === */
+  .causes-section {
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .causes-section h3 {
+    font-family: var(--serif);
+    font-size: 22px;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+  .cause-item {
+    display: flex;
+    gap: 14px;
+    padding: 16px 0;
+    border-top: 1px solid var(--rule);
+    align-items: flex-start;
+  }
+  .cause-number {
+    font-family: var(--serif);
+    font-size: 32px;
+    line-height: 1;
+    color: var(--rule-dark);
+    flex-shrink: 0;
+    width: 36px;
+    text-align: right;
+  }
+  .cause-content h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .cause-weight {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .cause-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-secondary);
+    margin-top: 4px;
+  }
+  .cause-bar {
+    margin-top: 8px;
+    height: 3px;
+    background: var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .cause-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  /* === PERSPECTIVE SWITCHER === */
+  .perspective-section {
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .perspective-tabs {
+    display: flex;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .perspective-tab {
+    flex: 1;
+    padding: 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: center;
+    background: none;
+    border: none;
+    border-right: 1px solid var(--rule);
+    cursor: pointer;
+    color: var(--ink-tertiary);
+    font-family: var(--sans);
+  }
+  .perspective-tab:last-child { border-right: none; }
+  .perspective-tab.active {
+    background: var(--ink);
+    color: var(--bg);
+  }
+  .perspective-content {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-secondary);
+  }
+  .perspective-content strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  /* === PAGE LABELS === */
+  .page-label {
+    padding: 20px 20px 0;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-tertiary);
+    margin-bottom: -8px;
+  }
+
+  /* === MOCK INDICATOR === */
+  .mock-banner {
+    background: var(--ink);
+    color: var(--bg);
+    text-align: center;
+    padding: 8px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-family: var(--mono);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+  }
+
+  /* === SECTION SEPARATOR === */
+  .page-separator {
+    padding: 40px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--rule);
+    background: linear-gradient(to bottom, var(--bg), #F3F1EC);
+  }
+  .page-separator h2 {
+    font-family: var(--serif);
+    font-size: 16px;
+    color: var(--ink-tertiary);
+    font-style: italic;
+  }
+  .page-separator .dots {
+    margin-top: 12px;
+    color: var(--rule-dark);
+    letter-spacing: 8px;
+    font-size: 18px;
+  }
+
+  /* === CTA === */
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--ink);
+    color: var(--bg);
+    padding: 14px 28px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    border-radius: 2px;
+    font-family: var(--sans);
+    margin-top: 24px;
+  }
+
+  .scroll-hint {
+    text-align: center;
+    padding: 16px;
+    font-size: 10px;
+    color: var(--ink-tertiary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+</style>
+</head>
+<body>
+
+<div class="mock-banner">Mock A — "The Broadsheet" — Mobile 430px</div>
+
+<!-- ===================== HOME PAGE ===================== -->
+
+<header class="header">
+  <a href="#" class="header-logo">Check the Charts</a>
+  <nav class="header-nav">
+    <a href="#explore-section">Charts</a>
+    <a href="#">About</a>
+  </nav>
+</header>
+
+<div class="masthead">
+  <span class="masthead-date">Issue No. 01 &middot; 2026</span>
+  <span class="masthead-badge">Data Literacy</span>
+</div>
+
+<section class="hero">
+  <div class="hero-kicker">Investigation</div>
+  <h1>What <em>really</em> happened in&nbsp;1971?</h1>
+  <p class="hero-sub">
+    Complex economic trends rarely have single causes. We present the data with full context — not propaganda.
+  </p>
+  <a href="#explore-section" class="cta-btn">
+    Explore the Charts
+    <span>&rarr;</span>
+  </a>
+  <div class="hero-byline">14 Charts &middot; 70 Factors &middot; 61 Sources</div>
+</section>
+
+<!-- CHART HERO (edge-to-edge) -->
+<div class="chart-hero">
+  <div class="chart-hero-label">
+    <span>Productivity vs. Compensation</span>
+    <span>1948–2023, indexed</span>
+  </div>
+  <div class="chart-area">
+    <svg class="chart-svg" viewBox="0 0 390 180" preserveAspectRatio="none">
+      <!-- Grid -->
+      <line x1="0" y1="45" x2="390" y2="45" stroke="#E0DDD8" stroke-width="0.5"/>
+      <line x1="0" y1="90" x2="390" y2="90" stroke="#E0DDD8" stroke-width="0.5"/>
+      <line x1="0" y1="135" x2="390" y2="135" stroke="#E0DDD8" stroke-width="0.5"/>
+      <!-- 1971 marker -->
+      <line x1="117" y1="0" x2="117" y2="180" stroke="#D44638" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
+      <text x="121" y="12" fill="#D44638" font-size="8" font-family="JetBrains Mono, monospace" font-weight="600">1971</text>
+      <!-- Productivity line -->
+      <polyline points="0,160 50,148 100,130 117,118 150,105 200,85 250,62 300,42 350,28 390,18" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Compensation line -->
+      <polyline points="0,160 50,149 100,132 117,123 150,120 200,116 250,112 300,108 350,105 390,100" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="chart-legend">
+    <div class="chart-legend-item">
+      <span class="chart-legend-dot" style="background:#2563EB"></span> Productivity
+    </div>
+    <div class="chart-legend-item">
+      <span class="chart-legend-dot" style="background:#D97706"></span> Compensation
+    </div>
+    <div class="chart-legend-item">
+      <span class="chart-legend-dot" style="background:#D44638; width:1px; height:10px;"></span> Key Event
+    </div>
+  </div>
+</div>
+
+<!-- PULL QUOTE -->
+<div class="pull-quote">
+  <p>&ldquo;One chart, one cause, one answer. That&rsquo;s not how economics works.&rdquo;</p>
+  <cite>The problem with wtfhappenedin1971.com</cite>
+</div>
+
+<!-- SECTION: FEATURES (editorial style) -->
+<div class="section-divider">
+  <div class="section-divider-inner">How We're Different</div>
+</div>
+
+<div class="chart-entry" style="padding-bottom: 20px;">
+  <div class="chart-entry-category">Methodology</div>
+  <h3 style="font-size: 20px; margin-bottom: 10px;">Multi-Causal Analysis</h3>
+  <p class="chart-entry-sub" style="font-size: 13px;">
+    Every trend has 3–5 weighted explanatory factors. We show the full picture — not one convenient story.
+  </p>
+</div>
+
+<div class="chart-entry" style="padding-bottom: 20px;">
+  <div class="chart-entry-category">Verification</div>
+  <h3 style="font-size: 20px; margin-bottom: 10px;">Source Transparency</h3>
+  <p class="chart-entry-sub" style="font-size: 13px;">
+    Every data point links to FRED, BLS, Census, or academic papers. Verify anything yourself.
+  </p>
+</div>
+
+<div class="chart-entry" style="padding-bottom: 20px;">
+  <div class="chart-entry-category">Perspective</div>
+  <h3 style="font-size: 20px; margin-bottom: 10px;">Three Viewpoints</h3>
+  <p class="chart-entry-sub" style="font-size: 13px;">
+    Toggle between Skeptic, Neutral, and Believer perspectives. Learn to evaluate competing interpretations.
+  </p>
+</div>
+
+<!-- PAGE SEPARATOR -->
+<div class="page-separator" id="explore-section">
+  <h2>The Charts</h2>
+  <div class="dots">&middot; &middot; &middot;</div>
+</div>
+
+<!-- ===================== EXPLORE PAGE ===================== -->
+
+<!-- Category Bar -->
+<div class="category-bar">
+  <button class="category-tab active">All</button>
+  <button class="category-tab">Wages</button>
+  <button class="category-tab">Housing</button>
+  <button class="category-tab">Inequality</button>
+  <button class="category-tab">Trade</button>
+  <button class="category-tab">Debt</button>
+  <button class="category-tab">Labor</button>
+  <button class="category-tab">Demographics</button>
+</div>
+
+<!-- CHART ENTRY 1 -->
+<div class="chart-entry">
+  <div class="chart-entry-category">Wages</div>
+  <h3>Wage-Productivity Gap</h3>
+  <p class="chart-entry-sub">Since 1971, productivity rose 150% while compensation rose only 17%.</p>
+  <div class="chart-entry-spark">
+    <svg viewBox="0 0 390 64" preserveAspectRatio="none" style="width:100%;height:100%;">
+      <polyline points="0,56 50,52 100,44 150,38 200,28 250,18 300,12 350,8 390,4" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+      <polyline points="0,56 50,54 100,50 150,48 200,46 250,44 300,42 350,40 390,38" fill="none" stroke="#D97706" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="chart-entry-claim">
+    <strong>Common Claim</strong>
+    &ldquo;Ending the gold standard in 1971 caused wages to decouple from productivity.&rdquo;
+  </div>
+  <a href="#detail-section" class="chart-entry-cta">Read Analysis</a>
+</div>
+
+<!-- CHART ENTRY 2 -->
+<div class="chart-entry">
+  <div class="chart-entry-category">Housing</div>
+  <h3>Housing Price&#8209;to&#8209;Income Ratio</h3>
+  <p class="chart-entry-sub">American homes cost 7.7x median income — up from 3.5x in 1971.</p>
+  <div class="chart-entry-spark">
+    <svg viewBox="0 0 390 64" preserveAspectRatio="none" style="width:100%;height:100%;">
+      <polyline points="0,52 80,50 120,48 180,42 220,30 260,24 300,18 350,10 390,6" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="chart-entry-claim">
+    <strong>Common Claim</strong>
+    &ldquo;Fiat currency destroyed housing affordability.&rdquo;
+  </div>
+  <a href="#" class="chart-entry-cta">Read Analysis</a>
+</div>
+
+<!-- CHART ENTRY 3 -->
+<div class="chart-entry">
+  <div class="chart-entry-category">Inequality</div>
+  <h3>Top 1% Income Share</h3>
+  <p class="chart-entry-sub">The top 1% captures 21% of all income — but the timeline is more complex than it seems.</p>
+  <div class="chart-entry-spark">
+    <svg viewBox="0 0 390 64" preserveAspectRatio="none" style="width:100%;height:100%;">
+      <polyline points="0,20 40,28 80,38 120,46 160,52 200,50 240,36 280,22 320,16 360,12 390,10" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="chart-entry-claim">
+    <strong>Common Claim</strong>
+    &ldquo;Leaving the gold standard created wealth inequality.&rdquo;
+  </div>
+  <a href="#" class="chart-entry-cta">Read Analysis</a>
+</div>
+
+<div class="scroll-hint">&darr; Scroll for 11 more charts</div>
+
+<!-- PAGE SEPARATOR -->
+<div class="page-separator" id="detail-section">
+  <h2>Chart Detail View</h2>
+  <div class="dots">&middot; &middot; &middot;</div>
+</div>
+
+<!-- ===================== DETAIL PAGE ===================== -->
+
+<div class="page-label">Analysis</div>
+
+<section class="hero" style="padding-bottom: 20px;">
+  <div class="hero-kicker">Wages</div>
+  <h1 style="font-size: 32px;">Wage&#8209;Productivity Gap</h1>
+  <p class="hero-sub" style="font-size: 14px;">
+    Net productivity rose 59.7% since 1979 while typical worker compensation grew only 15.8%.
+  </p>
+</section>
+
+<!-- Chart -->
+<div class="chart-hero">
+  <div class="chart-hero-label">
+    <span>Productivity vs. Hourly Compensation</span>
+    <span>Indexed to 1948</span>
+  </div>
+  <div class="chart-area">
+    <svg class="chart-svg" viewBox="0 0 390 180" preserveAspectRatio="none">
+      <line x1="0" y1="45" x2="390" y2="45" stroke="#E0DDD8" stroke-width="0.5"/>
+      <line x1="0" y1="90" x2="390" y2="90" stroke="#E0DDD8" stroke-width="0.5"/>
+      <line x1="0" y1="135" x2="390" y2="135" stroke="#E0DDD8" stroke-width="0.5"/>
+      <line x1="117" y1="0" x2="117" y2="180" stroke="#D44638" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
+      <text x="121" y="12" fill="#D44638" font-size="8" font-family="JetBrains Mono, monospace" font-weight="600">1971</text>
+      <line x1="220" y1="0" x2="220" y2="180" stroke="#D44638" stroke-width="1" stroke-dasharray="4 3" opacity="0.3"/>
+      <text x="224" y="12" fill="#D44638" font-size="8" font-family="JetBrains Mono, monospace" font-weight="600" opacity="0.6">2000</text>
+      <polyline points="0,160 50,148 100,130 117,118 150,105 200,85 250,62 300,42 350,28 390,18" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <polyline points="0,160 50,149 100,132 117,123 150,120 200,116 250,112 300,108 350,105 390,100" fill="none" stroke="#D97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="chart-legend">
+    <div class="chart-legend-item">
+      <span class="chart-legend-dot" style="background:#2563EB"></span> Productivity
+    </div>
+    <div class="chart-legend-item">
+      <span class="chart-legend-dot" style="background:#D97706"></span> Compensation
+    </div>
+  </div>
+</div>
+
+<!-- Claim vs Reality -->
+<div class="claim-reality">
+  <div class="claim-box">
+    <div class="box-label">Common Claim</div>
+    <p class="box-text">&ldquo;Ending the gold standard in 1971 caused wages to decouple from productivity.&rdquo;</p>
+  </div>
+  <div class="reality-box">
+    <div class="box-label">What the Data Shows</div>
+    <p class="box-text">The gap began widening in the late 1970s due to multiple converging factors including technology, globalization, declining union power, and policy changes.</p>
+  </div>
+</div>
+
+<!-- Perspective Switcher -->
+<div class="perspective-section">
+  <div class="perspective-tabs">
+    <button class="perspective-tab">Skeptic</button>
+    <button class="perspective-tab active">Neutral</button>
+    <button class="perspective-tab">Believer</button>
+  </div>
+  <div class="perspective-content">
+    <strong>Multiple Forces at Play</strong>
+    The wage-productivity gap involves at least five major factors. While the timing aligns loosely with the end of Bretton Woods, the strongest statistical predictors are technological change, declining unionization, and trade policy shifts.
+  </div>
+</div>
+
+<!-- Causal Factors -->
+<div class="causes-section">
+  <h3>Causal Factors</h3>
+
+  <div class="cause-item">
+    <div class="cause-number">1</div>
+    <div class="cause-content">
+      <h4>Technology & Automation <span class="cause-weight">30%</span></h4>
+      <p class="cause-desc">Computers and software increasingly replaced routine tasks, boosting output per worker while reducing bargaining power for routine jobs.</p>
+      <div class="cause-bar"><div class="cause-bar-fill" style="width:30%"></div></div>
+    </div>
+  </div>
+
+  <div class="cause-item">
+    <div class="cause-number">2</div>
+    <div class="cause-content">
+      <h4>Declining Unionization <span class="cause-weight">25%</span></h4>
+      <p class="cause-desc">Union membership fell from 27% to 10%, reducing workers' collective bargaining power and share of productivity gains.</p>
+      <div class="cause-bar"><div class="cause-bar-fill" style="width:25%"></div></div>
+    </div>
+  </div>
+
+  <div class="cause-item">
+    <div class="cause-number">3</div>
+    <div class="cause-content">
+      <h4>Globalization & Trade <span class="cause-weight">20%</span></h4>
+      <p class="cause-desc">Competition from lower-wage countries put downward pressure on domestic wages, especially in manufacturing.</p>
+      <div class="cause-bar"><div class="cause-bar-fill" style="width:20%"></div></div>
+    </div>
+  </div>
+
+  <div class="cause-item">
+    <div class="cause-number">4</div>
+    <div class="cause-content">
+      <h4>Policy & Deregulation <span class="cause-weight">15%</span></h4>
+      <p class="cause-desc">Tax policy shifts, minimum wage stagnation, and financial deregulation redirected economic gains toward capital owners.</p>
+      <div class="cause-bar"><div class="cause-bar-fill" style="width:15%"></div></div>
+    </div>
+  </div>
+
+  <div class="cause-item">
+    <div class="cause-number">5</div>
+    <div class="cause-content">
+      <h4>Monetary Policy Shift <span class="cause-weight">10%</span></h4>
+      <p class="cause-desc">End of Bretton Woods enabled inflation and financialization, but this is a contributing factor — not the sole cause.</p>
+      <div class="cause-bar"><div class="cause-bar-fill" style="width:10%"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Source -->
+<div style="padding: 20px; border-bottom: 1px solid var(--rule);">
+  <div style="font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-tertiary); margin-bottom: 8px;">Data Source</div>
+  <div style="font-size: 13px; font-weight: 600; color: var(--ink);">Economic Policy Institute</div>
+  <div style="font-size: 12px; color: var(--ink-secondary); margin-top: 2px;">State of Working America Data Library</div>
+  <div style="font-size: 11px; color: var(--accent); margin-top: 8px; font-family: var(--mono);">epi.org &rarr;</div>
+</div>
+
+<div style="padding: 40px 20px; text-align: center;">
+  <p style="font-family: var(--serif); font-size: 14px; font-style: italic; color: var(--ink-tertiary);">
+    End of mockup
+  </p>
+</div>
+
+</body>
+</html>

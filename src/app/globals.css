@@ -1,44 +1,69 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-dark: #0f172a;
-  --text-primary: #1e293b;
-  --text-secondary: #64748b;
-  --accent-blue: #3b82f6;
-  --accent-purple: #8b5cf6;
-  --accent-orange: #f59e0b;
-  --data-red: #ef4444;
-  --data-green: #10b981;
-  --border: #e2e8f0;
+  --bg-primary: #FEFBF4;
+  --bg-secondary: #F7F3EA;
+  --bg-card: #FFFFFF;
+  --bg-dark: #2D2A26;
+  --text-primary: #2D2A26;
+  --text-secondary: #706B63;
+  --text-tertiary: #A39E96;
+  --accent-blue: #4A72B0;
+  --accent-purple: #7B5EA7;
+  --accent-orange: #C55A3A;
+  --accent-sage: #5A8C6F;
+  --data-red: #C55A3A;
+  --data-green: #5A8C6F;
+  --border: #E5E0D6;
+  --border-light: #EEEBE4;
 }
 
 @theme inline {
   --color-bg-primary: var(--bg-primary);
   --color-bg-secondary: var(--bg-secondary);
+  --color-bg-card: var(--bg-card);
   --color-bg-dark: var(--bg-dark);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
   --color-accent-blue: var(--accent-blue);
   --color-accent-purple: var(--accent-purple);
   --color-accent-orange: var(--accent-orange);
+  --color-accent-sage: var(--accent-sage);
   --color-data-red: var(--data-red);
   --color-data-green: var(--data-green);
   --color-border: var(--border);
-  --font-sans: var(--font-inter);
+  --color-border-light: var(--border-light);
+  --font-sans: var(--font-instrument-sans);
+  --font-serif: var(--font-fraunces);
   --font-mono: var(--font-jetbrains-mono);
 }
 
 body {
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-instrument-sans), system-ui, sans-serif;
 }
 
+/* === ANIMATIONS === */
 @keyframes fade-in {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rise-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+}
+
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
 }
 
 @keyframes shimmer {
@@ -50,44 +75,17 @@ body {
   animation: fade-in 0.4s ease-out forwards;
 }
 
-.animate-shimmer {
-  background: linear-gradient(90deg, var(--bg-secondary) 25%, #e2e8f0 50%, var(--bg-secondary) 75%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-}
-
-@keyframes draw-line {
-  from { stroke-dashoffset: var(--line-length, 1000); }
-  to { stroke-dashoffset: 0; }
-}
-
-@keyframes rise-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slide-in-left {
-  from { opacity: 0; transform: translateX(-20px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes pulse-dot {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.6); opacity: 0.6; }
-}
-
 .animate-rise-up {
   animation: rise-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   opacity: 0;
 }
 
-.animate-slide-in-left {
-  animation: slide-in-left 0.5s ease-out forwards;
-  opacity: 0;
-}
-
 .animate-pulse-dot {
   animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.animate-bounce-down {
+  animation: bounce-down 2s ease-in-out infinite;
 }
 
 .stagger-1 { animation-delay: 0.1s; }
@@ -97,3 +95,24 @@ body {
 .stagger-5 { animation-delay: 0.5s; }
 .stagger-6 { animation-delay: 0.6s; }
 .stagger-7 { animation-delay: 0.7s; }
+
+/* === SCROLLBAR HIDING FOR CAROUSELS === */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* === SNAP SCROLL === */
+.snap-x {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.snap-start {
+  scroll-snap-align: start;
+}
+.snap-center {
+  scroll-snap-align: center;
+}

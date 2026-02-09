@@ -50,7 +50,7 @@ function CustomTooltip({
   const annotation = annotations.find((a) => a.year === label);
 
   return (
-    <div className="rounded-lg border border-border bg-bg-primary px-3 py-2.5 shadow-lg">
+    <div className="rounded-xl border border-border bg-bg-card px-3 py-2.5 shadow-lg">
       <p className="text-xs font-bold font-mono text-text-primary">{label}</p>
       {payload.map((entry) => (
         <p key={entry.dataKey} className="mt-1 text-xs text-text-secondary">
@@ -104,7 +104,7 @@ export default function InteractiveChart({
 
   return (
     <div className="w-full">
-      <ResponsiveContainer width="100%" height={360}>
+      <ResponsiveContainer width="100%" height={320}>
         <LineChart
           data={filteredData}
           margin={{ top: 10, right: 16, left: 0, bottom: 0 }}
@@ -119,12 +119,12 @@ export default function InteractiveChart({
           />
           <XAxis
             dataKey="year"
-            tick={{ fontSize: 11, fill: 'var(--text-secondary)', fontFamily: 'var(--font-jetbrains-mono, monospace)' }}
+            tick={{ fontSize: 11, fill: 'var(--text-tertiary)', fontFamily: 'var(--font-jetbrains-mono, monospace)' }}
             tickLine={false}
             axisLine={{ stroke: 'var(--border)' }}
           />
           <YAxis
-            tick={{ fontSize: 11, fill: 'var(--text-secondary)', fontFamily: 'var(--font-jetbrains-mono, monospace)' }}
+            tick={{ fontSize: 11, fill: 'var(--text-tertiary)', fontFamily: 'var(--font-jetbrains-mono, monospace)' }}
             tickLine={false}
             axisLine={false}
             width={48}
@@ -138,10 +138,9 @@ export default function InteractiveChart({
                 annotations={annotations}
               />
             }
-            cursor={{ stroke: 'var(--text-secondary)', strokeWidth: 1, strokeDasharray: '4 4' }}
+            cursor={{ stroke: 'var(--text-tertiary)', strokeWidth: 1, strokeDasharray: '4 4' }}
           />
 
-          {/* Annotation reference lines */}
           {annotations.map((annotation) => {
             const isInRange = filteredData.some((d) => d.year === annotation.year);
             if (!isInRange) return null;
@@ -157,7 +156,6 @@ export default function InteractiveChart({
             );
           })}
 
-          {/* Primary data line */}
           <Line
             type="monotone"
             dataKey="value"
@@ -168,7 +166,6 @@ export default function InteractiveChart({
             name={valueLabel}
           />
 
-          {/* Secondary data line */}
           {hasSecondary && (
             <Line
               type="monotone"
@@ -183,7 +180,6 @@ export default function InteractiveChart({
         </LineChart>
       </ResponsiveContainer>
 
-      {/* Legend */}
       <div className="mt-2 flex items-center justify-center gap-6">
         <div className="flex items-center gap-2">
           <span className="inline-block h-0.5 w-5 rounded-full bg-accent-blue" />

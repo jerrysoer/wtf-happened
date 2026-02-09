@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Fraunces, Instrument_Sans, JetBrains_Mono } from "next/font/google";
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import BottomNav from "@/components/BottomNav";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+});
+
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
   subsets: ["latin"],
 });
 
@@ -50,12 +55,12 @@ export default function RootLayout({
         )}
       </head>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} antialiased font-sans`}
+        className={`${fraunces.variable} ${instrumentSans.variable} ${jetbrainsMono.variable} antialiased font-sans`}
       >
         <div className="flex min-h-screen flex-col">
           <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <main className="flex-1 pb-20 sm:pb-0">{children}</main>
+          <BottomNav />
         </div>
       </body>
     </html>

@@ -7,24 +7,26 @@ interface SourceVerificationProps {
 
 export default function SourceVerification({ dataSource }: SourceVerificationProps) {
   return (
-    <div className="rounded-lg border border-border bg-bg-primary p-4">
+    <div className="rounded-xl border border-border bg-bg-card p-4">
       <div className="flex items-center gap-2">
-        <ShieldCheck className="h-4 w-4 text-data-green" />
-        <h3 className="text-sm font-semibold text-text-primary">Primary Data Source</h3>
+        <ShieldCheck className="h-4 w-4 text-accent-sage" />
+        <h3 className="text-[10px] font-bold uppercase tracking-[0.14em] text-text-tertiary">
+          Data Source
+        </h3>
       </div>
 
       <div className="mt-3 space-y-2">
-        <p className="text-sm font-medium text-text-primary">{dataSource.name}</p>
+        <p className="text-sm font-bold text-text-primary">{dataSource.name}</p>
         <a
           href={dataSource.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 text-xs font-medium text-accent-blue hover:underline"
+          className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-blue hover:underline"
         >
           <ExternalLink className="h-3 w-3" />
           View original data
         </a>
-        <p className="text-xs text-text-secondary">
+        <p className="text-xs text-text-tertiary">
           Last updated: <span className="font-mono">{dataSource.lastUpdated}</span>
         </p>
       </div>

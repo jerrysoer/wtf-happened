@@ -3,8 +3,8 @@ import { ArrowRight } from 'lucide-react';
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
-      <h1 className="text-3xl font-extrabold tracking-tight text-text-primary sm:text-4xl">
+    <div className="mx-auto max-w-3xl px-6 py-12 sm:px-8 sm:py-16">
+      <h1 className="font-serif text-3xl font-extrabold tracking-tight text-text-primary sm:text-4xl">
         About This Project
       </h1>
 
@@ -20,14 +20,14 @@ export default function AboutPage() {
           verified sources, and competing interpretations — so you can form your own conclusions.
         </p>
 
-        <h2 className="text-lg font-bold text-text-primary pt-4">Mission</h2>
+        <h2 className="font-serif text-lg font-bold text-text-primary pt-4">Mission</h2>
         <p>
           Turn viral chart propaganda into a teaching moment for statistical literacy. Complex
           economic phenomena rarely have single causes, and intellectual honesty requires
           acknowledging uncertainty and considering alternative explanations.
         </p>
 
-        <h2 className="text-lg font-bold text-text-primary pt-4">What We&apos;re NOT</h2>
+        <h2 className="font-serif text-lg font-bold text-text-primary pt-4">What We&apos;re NOT</h2>
         <ul className="list-disc list-inside space-y-1">
           <li>Another Bitcoin marketing site</li>
           <li>A pro-gold-standard propaganda tool</li>
@@ -35,7 +35,7 @@ export default function AboutPage() {
           <li>A political advocacy platform</li>
         </ul>
 
-        <h2 className="text-lg font-bold text-text-primary pt-4">What We ARE</h2>
+        <h2 className="font-serif text-lg font-bold text-text-primary pt-4">What We ARE</h2>
         <ul className="list-disc list-inside space-y-1">
           <li>A critical thinking teaching tool</li>
           <li>An example of honest data journalism</li>
@@ -43,7 +43,7 @@ export default function AboutPage() {
           <li>A demonstration of multi-causal analysis</li>
         </ul>
 
-        <h2 className="text-lg font-bold text-text-primary pt-4">Open Source</h2>
+        <h2 className="font-serif text-lg font-bold text-text-primary pt-4">Open Source</h2>
         <p>
           This project is released under the MIT License. No ads, no paywall — this is a public
           service educational project. Contributions are welcome.
@@ -53,7 +53,7 @@ export default function AboutPage() {
       <div className="mt-10">
         <Link
           href="/explore"
-          className="group inline-flex items-center gap-2 rounded-lg bg-accent-blue px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-accent-blue/90"
+          className="group inline-flex items-center gap-2 rounded-xl bg-accent-orange px-6 py-3 text-sm font-bold text-white transition-all hover:bg-accent-orange/90 shadow-lg shadow-accent-orange/20"
         >
           Explore the Charts
           <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
